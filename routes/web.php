@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\DecisionsController;
+use App\Http\Controllers\LevelsController;
+use App\Http\Controllers\PositionsController;
 use App\Models\Brief;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BriefsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,41 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::prefix("/dash")->group(function () {
-
-    Route::get("/", function () {
-        return view("dashBoard")->with('briefs', Brief::all());
-    });
-
-    Route::prefix("/{brief}")->group(function () {
-
-        Route::get("/", function (Brief $brief) {
-            return view("brief", ["id" => $brief])->with('briefs', $brief);
-        });
-
-        Route::prefix("edit")->group(function () {
-
-            Route::get("/", function (Brief $brief) {
-                return view("editBrief", ["id" => $brief])->with('briefs', $brief);
-            });
-
-            Route::patch("/", "BriefController@patch");
-        });
-
-        Route::delete("/", "BriefController@delete");
-
-    });
-
-    Route::prefix("/create")->group(function () {
-
-        Route::get("/", function () {
-            return view("createBrief");
-        });
-
-        Route::put("/", "BriefController@create");
-    });
-});
+Route::resources([
+    "briefs" => BriefsController::class,
+    "levels" => LevelsController::class,
+    "decisions" => DecisionsController::class,
+    "positions" => PositionsController::class
+]);
