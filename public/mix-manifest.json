@@ -1,4 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/excel-bootstrap-table-filter-bundle.js": "/js/excel-bootstrap-table-filter-bundle.js",
+    "/css/excel-bootstrap-table-filter-style.css": "/css/excel-bootstrap-table-filter-style.css",
     "/css/app.css": "/css/app.css"
 }

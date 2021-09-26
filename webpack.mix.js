@@ -16,3 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
         //
     ])
     .browserSync();
+mix.js('resources/js/excel-bootstrap-table-filter-bundle.js', "public/js")
+    .postCss('resources/css/excel-bootstrap-table-filter-style.css', 'public/css',[])

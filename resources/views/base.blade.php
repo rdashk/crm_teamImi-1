@@ -25,7 +25,10 @@
     <h1 class="mt-3 mb-3">
         @yield('title')
     </h1>
-    @yield('content')
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        @yield('content')
+    </div>
 </section>
 </body>
+@yield('extra_scripts')
 </html>
