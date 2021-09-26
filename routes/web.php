@@ -17,6 +17,9 @@ use App\Http\Controllers\BriefsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get("/", function(){
+    return redirect("briefs");
+});
 
 Route::resources([
     "briefs" => BriefsController::class,

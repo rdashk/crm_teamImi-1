@@ -16,6 +16,7 @@ class LevelsController extends Controller
      */
     public function index()
     {
+//        dd(Level::all());
         return new Response(view("levels.view")->with("levels", Level::all()));
     }
 
