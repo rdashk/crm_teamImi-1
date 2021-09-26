@@ -52,7 +52,7 @@ class PositionsController extends Controller
      */
     public function show(Position $position)
     {
-        return new Response(view("positions.show")->with($position));
+        return new Response(view("positions.show")->with("position", $position));
     }
 
     /**
@@ -63,7 +63,7 @@ class PositionsController extends Controller
      */
     public function edit(Position $position)
     {
-        return new Response(view("positions.edit")->with($position));
+        return new Response(view("positions.edit")->with("position", $position));
     }
 
     /**

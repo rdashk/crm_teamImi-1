@@ -53,7 +53,7 @@ class LevelsController extends Controller
      */
     public function show(Level $level)
     {
-        return new Response(view("levels.show")->with($level));
+        return new Response(view("levels.show")->with("level", $level));
     }
 
     /**
@@ -64,7 +64,7 @@ class LevelsController extends Controller
      */
     public function edit(Level $level)
     {
-        return new Response(view("levels.edit")->with($level));
+        return new Response(view("levels.edit")->with("level", $level));
     }
 
     /**

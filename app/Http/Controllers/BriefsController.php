@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brief;
+use DebugBar\DebugBar;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -16,7 +18,7 @@ class BriefsController extends Controller
      */
     public function index()
     {
-        return new Response(view("briefs.view")->with('briefs', Brief::all()));
+        return new Response(view("briefs.view")->with("briefs", Brief::all()));
     }
 
     /**
@@ -37,9 +39,20 @@ class BriefsController extends Controller
      */
     public function store(Request $request): Response
     {
-        $brief = new Brief($request->all());
+        $brief = new Brief();
+        $values = $request->all(["name",
+            "email",
+            "position_id",
+            "level_id",
+            "interview_date",
+            "skills",
+            "text",
+            "experience",
+            "decision_id",
+        ]);
+        $brief->fill($values);
         $brief->save();
-        return new Response();
+        return new Response(view("briefs.view")->with("briefs", Brief::all()));
     }
 
     /**
@@ -50,7 +63,7 @@ class BriefsController extends Controller
      */
     public function show(Brief $brief)
     {
-        return new Response(view("briefs.show")->with($brief));
+        return new Response(view("briefs.show")->with("brief", $brief));
     }
 
     /**
@@ -61,7 +74,7 @@ class BriefsController extends Controller
      */
     public function edit(Brief $brief)
     {
-        return new Response(view("briefs.edit")->with($brief));
+        return new Response(view("briefs.edit")->with("brief", $brief));
     }
 
     /**
@@ -74,7 +87,7 @@ class BriefsController extends Controller
     public function update(Request $request, Brief $brief): Response
     {
         $brief->update($request->all());
-        return new Response();
+        return new Response(view("briefs.show")->with("brief", $brief));
     }
 
     /**
@@ -86,6 +99,6 @@ class BriefsController extends Controller
     public function destroy(Brief $brief): Response
     {
         $brief->delete();
-        return new Response();
+        return new Response(redirect("briefs"));
     }
 }

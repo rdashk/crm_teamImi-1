@@ -18,7 +18,7 @@ use App\Http\Controllers\BriefsController;
 |
 */
 Route::get("/", function(){
-    return redirect("briefs");
+    return view("index");
 });
 
 Route::resources([

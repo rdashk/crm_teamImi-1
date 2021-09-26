@@ -50,7 +50,7 @@ class DecisionsController extends Controller
      */
     public function show(Decision $decision)
     {
-        return new Response(view('decisions.show')->with($decision));
+        return new Response(view('decisions.show')->with("decision", $decision));
     }
 
     /**
@@ -61,7 +61,7 @@ class DecisionsController extends Controller
      */
     public function edit(Decision $decision)
     {
-        return new Response(view("decisions.edit")->with($decision));
+        return new Response(view("decisions.edit")->with("decision", $decision));
     }
 
     /**

@@ -10,6 +10,17 @@ class Brief extends Model
 {
     use HasFactory;
 
+    protected $fillable = ["name",
+        "email",
+        "position_id",
+        "level_id",
+        "interview_date",
+        "skills",
+        "text",
+        "experience",
+        "decision_id",
+    ];
+
     public function getPositionName(){
         return Position::find($this->position_id)->name;
     }
