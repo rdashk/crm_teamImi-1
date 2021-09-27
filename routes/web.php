@@ -1,11 +1,10 @@
 <?php
 
+use App\Http\Controllers\BriefsController;
 use App\Http\Controllers\DecisionsController;
 use App\Http\Controllers\LevelsController;
 use App\Http\Controllers\PositionsController;
-use App\Models\Brief;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BriefsController;
 
 /*
 |--------------------------------------------------------------------------

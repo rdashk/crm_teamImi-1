@@ -13,12 +13,12 @@ use App\Models\Brief;
     <table class="table vertical table-bordered" id="table">
         <thead>
         <tr>
-            <th>Имя</th>
-            <th>E-mail</th>
-            <th>Позиция</th>
-            <th>Уровень</th>
-            <th>Дата</th>
-            <th>Решение</th>
+            <th id="thName">Имя <i class="arrow up"></i> <i class="arrow down"></i></th>
+            <th id="thEmail">E-mail <i class="arrow up"></i> <i class="arrow down"></i></th>
+            <th id="thPosition">Позиция <i class="arrow up"></i> <i class="arrow down"></i></th>
+            <th id="thLevel">Уровень <i class="arrow up"></i> <i class="arrow down"></i></th>
+            <th id="thDate">Дата <i class="arrow up"></i> <i class="arrow down"></i></th>
+            <th id="thDecision">Решение <i class="arrow up"></i> <i class="arrow down"></i></th>
         </tr>
         </thead>
         <tbody>
@@ -40,7 +40,5 @@ use App\Models\Brief;
 
 @section("extra_scripts")
     <script src="/js/jquery-3.6.0.min.js"></script>
-    <script src="{{mix("/js/excel-bootstrap-table-filter-bundle.js")}}"></script>
-    <link rel="stylesheet" href="{{mix("/css/excel-bootstrap-table-filter-style.css")}}"/>
-    <script src="{{mix("/js/app.js")}}"></script>
+    <script src="/js/app.js"></script>
 @endsection
