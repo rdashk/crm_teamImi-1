@@ -27,4 +27,22 @@ class PostRequest extends FormRequest
             //
         ];
     }
+
+    protected function formatValidationErrors(Validator $validator)
+    {
+        return $validator->errors()->all();
+    }
+
+    /**
+     * Получить сообщения об ошибках для определённых правил проверки.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required' => 'Введите ФИО',
+            'email.required'  => 'Введите email',
+        ];
+    }
 }

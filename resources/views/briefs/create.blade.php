@@ -54,7 +54,7 @@ use Carbon\Carbon;
     <div class="form-group">
 
         <!-- Display Validation Errors -->
-        @include('briefs.errors')
+        @include('errors')
 
         {{Form::submit("Отправить", ["class" => "btn form-control btn-outline-dark"])}}
     </div>

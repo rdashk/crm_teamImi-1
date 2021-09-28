@@ -29,6 +29,6 @@ class PostController extends Controller
             'name' => 'required',
         ]);
 
-        // Поля заполнены ...
+        // Поля заполнены ..., сохранение в БД...
     }
 }
