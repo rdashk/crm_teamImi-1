@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Brief;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,7 @@ Route::apiResources(
         "positions" => \App\Http\Controllers\Api\PositionsController::class
     ]
 );
+
+Route::get("/normal-briefs", function(){
+    return Brief::with("level", "position", "decision")->get();
+});

@@ -24,11 +24,11 @@ use App\Models\Brief;
         </tr>
         <tr>
             <th scope="row">Позиция</th>
-            <td>{{$brief->getPositionName()}}</td>
+            <td>{{json_decode($brief->position()->get('name')[0], true)['name']}}</td>
         </tr>
         <tr>
             <th scope="row">Уровень</th>
-            <td>{{$brief->getLevelName()}}</td>
+            <td>{{json_decode($brief->level()->get('name')[0], true)['name']}}</td>
         </tr>
         <tr>
             <th scope="row">Дата</th>

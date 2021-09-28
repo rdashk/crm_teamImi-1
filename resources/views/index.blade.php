@@ -1,7 +1,7 @@
 @extends("base")
 
 @section("title")
-    HR CRM
+    CRM
 @endsection
 
 @section('content')
