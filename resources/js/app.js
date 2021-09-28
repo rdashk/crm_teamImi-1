@@ -33,6 +33,3 @@ Vue.component('v-db-table-row', require("./components/DashBoardTableRow").defaul
 const navigation = new Vue({
     el: '#navigation',
 });
-const table = new Vue({
-    el: "#dashboardTable",
-})

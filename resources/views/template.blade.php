@@ -4,6 +4,6 @@
     <v-nav></v-nav>
 @endsection
 
-@push('scripts')
+@prepend('scripts')
     <script src="/js/app.js"></script>
-@endpush
+@endprepend

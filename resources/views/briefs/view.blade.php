@@ -41,3 +41,10 @@ use App\Models\Brief;
 {{--    </table>--}}
 @endsection
 
+@push('scripts')
+<script>
+    const table = new Vue({
+        el: "#dashboardTable",
+    })
+</script>
+@endpush

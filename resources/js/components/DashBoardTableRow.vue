@@ -1,5 +1,5 @@
 <template>
-    <tr class="item" @click="click" @mouseover="this.className='item table-active'"
+    <tr class="item" @click="click" onmouseover="this.className='item table-active'"
         onmouseleave="this.className='item'"
         style="cursor: pointer;">
         <td data-label="name">{{ this.name }}</td>
@@ -40,13 +40,6 @@ export default {
             id: Number,
             name: String,
         },
-    },
-    data() {
-        return {
-            position: "",
-            level: "",
-            decision: "",
-        }
     },
     methods: {
         click(event){
