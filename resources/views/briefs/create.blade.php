@@ -11,6 +11,7 @@ use App\Models\Position;
 use Carbon\Carbon;
 ?>
 @section("content")
+
     {{Form::open(["action" => 'App\Http\Controllers\BriefsController@store', "method" => "POST"])}}
     @csrf
     <div class="form-group">
@@ -49,7 +50,12 @@ use Carbon\Carbon;
         <label for="text">Резюме</label>
         {{Form::text("text", null, ["placeholder" => "Резюме", "class" => "form-control", "id"=>"text"])}}
     </div>
+
     <div class="form-group">
+
+        <!-- Display Validation Errors -->
+        @include('briefs.errors')
+
         {{Form::submit("Отправить", ["class" => "btn form-control btn-outline-dark"])}}
     </div>
     {{Form::close()}}
