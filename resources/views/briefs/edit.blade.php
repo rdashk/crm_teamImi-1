@@ -15,7 +15,7 @@ use Carbon\Carbon;
  */
 ?>
 @section("content")
-    {{Form::open(["action" => ['App\Http\Controllers\BriefsController@update', $brief->id], "method" => "PATCH"])}}
+    {{Form::open(["action" => ['App\Http\Controllers\BriefsController@update', $brief->id], "method" => "PATCH", "class" => "container"])}}
     @csrf
     <div class="form-group">
         <label for="name">Имя</label>

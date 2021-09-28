@@ -21,7 +21,9 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<div id="navigation" class="container">
 @yield('navigation')
+</div>
 <section class="d-flex flex-column justify-content-center align-items-center">
     <h1 class="mt-3 mb-3">
         @yield('title')
@@ -31,5 +33,5 @@
     </div>
 </section>
 </body>
-@yield('extra_scripts')
+@stack('scripts')
 </html>

@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Position;
 
 class Brief extends Model
 {
@@ -21,15 +20,16 @@ class Brief extends Model
         "decision_id",
     ];
 
-    public function getPositionName(){
-        return Position::find($this->position_id)->name;
+    public function position()
+    {
+        return $this->hasOne(Position::class, "id", "position_id");
     }
 
-    public function getLevelName(){
-        return Level::find($this->level_id)->name;
+    public function level(){
+        return $this->hasOne(Level::class, "id", "level_id");
     }
 
-    public function getDecisionName(){
-        return Decision::find($this->decision_id)->name;
+    public function decision(){
+        return $this->hasOne(Decision::class, "id", "decision_id");
     }
 }

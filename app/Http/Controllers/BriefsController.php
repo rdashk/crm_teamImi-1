@@ -18,7 +18,7 @@ class BriefsController extends Controller
      */
     public function index()
     {
-        return new Response(view("briefs.view")->with("briefs", Brief::all()));
+        return new Response(view("briefs.view"));
     }
 
     /**

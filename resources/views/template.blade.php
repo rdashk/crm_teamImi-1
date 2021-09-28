@@ -1,12 +1,9 @@
 @extends("base")
 
 @section('navigation')
-    <div class="p-3 mb-2 container bg-secondary rounded " id="navigation">
-        <div class="row justify-content-around">
-            <a class="btn col-2 btn-light" href="/briefs">DashBoard</a>
-            <a class="btn col-2 btn-light" href="/decisions">Решения</a>
-            <a class="btn col-2 btn-light" href="/levels">Уровни</a>
-            <a class="btn col-2 btn-light" href="/positions">Позиции</a>
-        </div>
-    </div>
+    <v-nav></v-nav>
 @endsection
+
+@push('scripts')
+    <script src="/js/app.js"></script>
+@endpush

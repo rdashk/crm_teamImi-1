@@ -11,7 +11,7 @@ use App\Models\Position;
 use Carbon\Carbon;
 ?>
 @section("content")
-    {{Form::open(["action" => 'App\Http\Controllers\BriefsController@store', "method" => "POST"])}}
+    {{Form::open(["action" => 'App\Http\Controllers\BriefsController@store', "method" => "POST", "class" => "container"])}}
     @csrf
     <div class="form-group">
         <label for="name">Имя</label>
