@@ -19,9 +19,8 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('v-nav', require('./components/Nav.vue').default);
-Vue.component('v-db-table', require("./components/DashBoardTable").default);
-Vue.component('v-db-table-row', require("./components/DashBoardTableRow").default);
+Vue.component('v-db-table', require('./components/DashBoardTable.vue').default);
+Vue.component('v-nav', require("./components/Nav.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

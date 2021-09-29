@@ -2163,6 +2163,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "DashBoardTableRow",
   props: {
@@ -2193,9 +2223,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      className: "item d-flex flex-row col pl-0 pr-0",
-      buttonsClass: "mybuttons d-flex flex-row display-none",
-      compClass: "item d-flex flex-row col pl-0 pr-0"
+      className: "item d-flex flex-row align-items-center col pl-0 pr-0",
+      buttonsClass: "btn-group d-flex flex-row ",
+      compClass: "item d-flex flex-row align-items-center col pl-0 pr-0",
+      show: false
     };
   },
   methods: {
@@ -2203,12 +2234,16 @@ __webpack_require__.r(__webpack_exports__);
       document.location = "/briefs/" + this.id;
     },
     mouseOver: function mouseOver(event) {
-      this.comcplass = this.className + " table_active";
-      this.buttonsClass = "mybuttons d-flex flex-row display ";
+      this.compClass = this.className + " bg-accent";
+      this.show = true;
     },
     mouseLeave: function mouseLeave(event) {
       this.compClass = this.className;
-      this.buttonsClass = "mybuttons d-flex flex-row display-none";
+      this.show = false;
+    },
+    deleteBrief: function deleteBrief(e) {
+      e.stopPropagation();
+      console.log("delete brief#" + this.id);
     }
   }
 });
@@ -2274,9 +2309,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component('v-db-table', __webpack_require__(/*! ./components/DashBoardTable.vue */ "./resources/js/components/DashBoardTable.vue")["default"]);
 Vue.component('v-nav', __webpack_require__(/*! ./components/Nav.vue */ "./resources/js/components/Nav.vue")["default"]);
-Vue.component('v-db-table', __webpack_require__(/*! ./components/DashBoardTable */ "./resources/js/components/DashBoardTable.vue")["default"]);
-Vue.component('v-db-table-row', __webpack_require__(/*! ./components/DashBoardTableRow */ "./resources/js/components/DashBoardTableRow.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -17683,7 +17717,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.display-none[data-v-27b13a36] {\n    display: none;\n    opacity: 0;\n}\n.display[data-v-27b13a36] {\n    display: block;\n    opacity: 1;\n}\n.mybuttons[data-v-27b13a36] {\n    transition-property: opacity;\n    transition-duration: 0.5s;\n    /*position: absolute;*/\n    /*right: 5%;*/\n    /*top: 1em;*/\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-accent[data-v-27b13a36] {\n    background-color: rgba(187, 187, 187, 0.99);\n}\n.slide-fade-enter-active[data-v-27b13a36], .slide-left-fade-enter-active[data-v-27b13a36]{\n    transition: all .3s ease;\n}\n.slide-fade-leave-active[data-v-27b13a36], .slide-left-fade-leave-active[data-v-27b13a36] {\n    transition: all .3s ease;\n}\n.slide-fade-enter[data-v-27b13a36], .slide-fade-leave-to[data-v-27b13a36]\n{\n    transform: translateX(15px);\n    opacity: 0;\n}\n.slide-left-fade-enter[data-v-27b13a36], .slide-left-fade-leave-to[data-v-27b13a36] {\n    transform: translateX(-15px);\n    opacity: 0;\n}\n#deleteButton[data-v-27b13a36]{\n    position: absolute;\n    left: -2.1em;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38565,8 +38599,57 @@ var render = function() {
       }
     },
     [
+      _c("transition", { attrs: { name: "slide-left-fade" } }, [
+        _vm.show
+          ? _c(
+              "div",
+              { class: _vm.buttonsClass, attrs: { id: "deleteButton" } },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-outline-danger pl-2 pr-2 pt-2 pb-2",
+                    on: { click: _vm.deleteBrief }
+                  },
+                  [
+                    _c(
+                      "svg",
+                      {
+                        staticClass: "bi bi-trash",
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          width: "16",
+                          height: "16",
+                          fill: "currentColor",
+                          viewBox: "0 0 16 16"
+                        }
+                      },
+                      [
+                        _c("path", {
+                          attrs: {
+                            d:
+                              "M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("path", {
+                          attrs: {
+                            "fill-rule": "evenodd",
+                            d:
+                              "M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                          }
+                        })
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          : _vm._e()
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "col-3", attrs: { "data-label": "name" } }, [
-        _vm._v(_vm._s(this.name))
+        _vm._v(_vm._s(_vm.name))
       ]),
       _vm._v(" "),
       _c(
@@ -38575,21 +38658,21 @@ var render = function() {
           staticClass: "col-2 overflow-auto",
           attrs: { "data-label": "email" }
         },
-        [_vm._v(_vm._s(this.email))]
+        [_vm._v(_vm._s(_vm.email))]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "col-1", attrs: { "data-label": "position" } }, [
-        _vm._v(_vm._s(this.position.name))
+        _vm._v(_vm._s(_vm.position.name))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-2", attrs: { "data-label": "level" } }, [
-        _vm._v(_vm._s(this.level.name))
+        _vm._v(_vm._s(_vm.level.name))
       ]),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "col-2", attrs: { "data-label": "interview_date" } },
-        [_vm._v(_vm._s(this.interview_date))]
+        [_vm._v(_vm._s(_vm.interview_date))]
       ),
       _vm._v(" "),
       _c(
@@ -38598,17 +38681,97 @@ var render = function() {
           staticClass: "col-2 overflow-hidden",
           attrs: { "data-label": "decision" }
         },
-        [_vm._v(_vm._s(this.decision.name))]
+        [_vm._v(_vm._s(_vm.decision.name))]
       ),
       _vm._v(" "),
-      _c("div", { class: _vm.buttonsClass }, [
-        _c("button", [_vm._v("уд")]),
-        _vm._v(" "),
-        _c("button", [_vm._v("ре")]),
-        _vm._v(" "),
-        _c("button", [_vm._v("пд")])
+      _c("transition", { attrs: { name: "slide-fade" } }, [
+        _vm.show
+          ? _c("div", { class: _vm.buttonsClass }, [
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-outline-primary pl-2 pr-2 pt-2 pb-2",
+                  attrs: { href: "/briefs/" + _vm.id + "/edit" }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "bi bi-pencil-square",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "16",
+                        height: "16",
+                        fill: "currentColor",
+                        viewBox: "0 0 16 16"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d:
+                            "M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-outline-info pl-2 pr-2 pt-2 pb-2",
+                  on: {
+                    click: function($event) {
+                      return _vm.$emit("pdf-brief")
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "bi bi-file-earmark-pdf",
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "16",
+                        height: "16",
+                        fill: "currentColor",
+                        viewBox: "0 0 16 16"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M4.603 14.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 1.482-.645 19.697 19.697 0 0 0 1.062-2.227 7.269 7.269 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a10.954 10.954 0 0 0 .98 1.686 5.753 5.753 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.856.856 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.712 5.712 0 0 1-.911-.95 11.651 11.651 0 0 0-1.997.406 11.307 11.307 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.793.793 0 0 1-.58.029zm1.379-1.901c-.166.076-.32.156-.459.238-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361.01.022.02.036.026.044a.266.266 0 0 0 .035-.012c.137-.056.355-.235.635-.572a8.18 8.18 0 0 0 .45-.606zm1.64-1.33a12.71 12.71 0 0 1 1.01-.193 11.744 11.744 0 0 1-.51-.858 20.801 20.801 0 0 1-.5 1.05zm2.446.45c.15.163.296.3.435.41.24.19.407.253.498.256a.107.107 0 0 0 .07-.015.307.307 0 0 0 .094-.125.436.436 0 0 0 .059-.2.095.095 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a3.876 3.876 0 0 0-.612-.053zM8.078 7.8a6.7 6.7 0 0 0 .2-.828c.031-.188.043-.343.038-.465a.613.613 0 0 0-.032-.198.517.517 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822.024.111.054.227.09.346z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              )
+            ])
+          : _vm._e()
       ])
-    ]
+    ],
+    1
   )
 }
 var staticRenderFns = []
