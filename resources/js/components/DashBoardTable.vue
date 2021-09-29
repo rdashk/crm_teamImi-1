@@ -1,28 +1,28 @@
 <template>
-    <table class="table vertical table-bordered" id="table" @click="console.log(1)">
-        <thead>
-        <tr>
-            <th id="thName">Имя <i class="arrow up"></i> <i class="arrow down"></i></th>
-            <th id="thEmail">E-mail <i class="arrow up"></i> <i class="arrow down"></i></th>
-            <th id="thPosition">Позиция <i class="arrow up"></i> <i class="arrow down"></i></th>
-            <th id="thLevel">Уровень <i class="arrow up"></i> <i class="arrow down"></i></th>
-            <th id="thDate">Дата <i class="arrow up"></i> <i class="arrow down"></i></th>
-            <th id="thDecision">Решение <i class="arrow up"></i> <i class="arrow down"></i></th>
-        </tr>
-        </thead>
-        <tbody v-for="$data in this.rows">
-            <DashBoardTableRow v-bind="$data"></DashBoardTableRow>
-        </tbody>
-    </table>
+    <div class="d-flex flex-column container table-bordered col-xl pl-0 pr-0" id="table">
+        <div class="d-flex flex-row container col-12 pl-0 pr-0">
+            <DashBoardColumn id="thName" value="Имя" class="col-3 text-center"></DashBoardColumn>
+            <DashBoardColumn id="thEmail" value="E-mail" class="col-2 text-center"></DashBoardColumn>
+            <DashBoardColumn id="thPosition" value="Позиция" class="col-1 text-center"></DashBoardColumn>
+            <DashBoardColumn id="thLevel" value="Уровень" class="col-2 text-center"></DashBoardColumn>
+            <DashBoardColumn id="thDate" value="Дата" class="col-2 text-center"></DashBoardColumn>
+            <DashBoardColumn id="thDecision" value="Решение" class="col-2 text-center"></DashBoardColumn>
+        </div>
+        <div v-for="$data in this.rows">
+            <DashBoardTableRow v-bind="$data">
+            </DashBoardTableRow>
+        </div>
+    </div>
 </template>
 
 <script>
 
 import DashBoardTableRow from "./DashBoardTableRow";
+import DashBoardColumn from "./DashBoardColumn";
 
 export default {
     name: "DashBoardTable",
-    components: {DashBoardTableRow},
+    components: {DashBoardColumn, DashBoardTableRow},
     data() {
         return {
             rows: [],
@@ -32,6 +32,9 @@ export default {
         axios
             .get('http://127.0.0.1:8000/api/normal-briefs')
             .then(response => (this.rows = response.data));
+    },
+    methods: {
+
     },
 }
 

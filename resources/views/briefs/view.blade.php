@@ -10,7 +10,7 @@ use App\Models\Brief;
 ?>
 @section("content")
     <a class="btn col-4 btn-outline-dark mb-3" href="/briefs/create">Добавить резюме</a>
-    <div id="dashboardTable">
+    <div id="dashboardTable" class="container">
         <v-db-table></v-db-table>
     </div>
 {{--    <table class="table vertical table-bordered" id="table">--}}
