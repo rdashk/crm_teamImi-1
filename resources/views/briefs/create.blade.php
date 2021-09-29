@@ -14,6 +14,9 @@ use Carbon\Carbon;
     {{Form::open(["action" => 'App\Http\Controllers\BriefsController@store', "method" => "POST", "class" => "container"])}}
     @csrf
     <div class="form-group">
+
+        @include('errors')
+
         <label for="name">Имя</label>
         {{Form::text("name", null, ["placeholder" => "Имя", "class" => "form-control", "id"=>"name"])}}
     </div>
