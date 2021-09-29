@@ -11,11 +11,13 @@ use App\Models\Position;
 use Carbon\Carbon;
 ?>
 @section("content")
-    {{Form::open(["action" => 'App\Http\Controllers\BriefsController@store', "method" => "POST", "class" => "container"])}}
+    @include('errors')
+
+    {{Form::open(["action" => 'App\Http\Controllers\BriefsController@store', "method" => "POST"])}}
     @csrf
     <div class="form-group">
-        <label for="name">Имя</label>
-        {{Form::text("name", null, ["placeholder" => "Имя", "class" => "form-control", "id"=>"name"])}}
+        <label for="name">ФИО</label>
+        {{Form::text("name", null, ["placeholder" => "ФИО", "class" => "form-control", "id"=>"name"])}}
     </div>
     <div class="form-group">
         <label for="email">E-mail</label>
@@ -49,7 +51,9 @@ use Carbon\Carbon;
         <label for="text">Резюме</label>
         {{Form::text("text", null, ["placeholder" => "Резюме", "class" => "form-control", "id"=>"text"])}}
     </div>
+
     <div class="form-group">
+
         {{Form::submit("Отправить", ["class" => "btn form-control btn-outline-dark"])}}
     </div>
     {{Form::close()}}
