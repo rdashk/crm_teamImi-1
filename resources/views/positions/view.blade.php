@@ -12,7 +12,7 @@ use App\Models\Position
 @section("content")
     @foreach($positions as $id => $position)
         <div class="item">
-            <div>{{$id+1}}</div>
+            <div>{{$id}}</div>
             <div>{{$position}}</div>
         </div>
     @endforeach

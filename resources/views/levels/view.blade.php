@@ -12,7 +12,7 @@ use App\Models\Level
 @section("content")
     @foreach($levels as $id => $level)
         <div class="item">
-            <div>{{$id+1}}</div>
+            <div>{{$id}}</div>
             <div>{{$level}}</div>
         </div>
     @endforeach

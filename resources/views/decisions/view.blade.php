@@ -12,7 +12,7 @@ use App\Models\Decision;
 @section("content")
     @foreach($decisions as $id => $decision)
         <div class="item">
-            <div>{{$id+1}}</div>
+            <div>{{$id}}</div>
             <div>{{$decision}}</div>
         </div>
     @endforeach

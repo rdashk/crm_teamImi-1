@@ -16,7 +16,7 @@ class PositionsController extends Controller
      */
     public function index()
     {
-        $positions = Position::pluck("name");
+        $positions = Position::pluck("name", "id");
         return view("positions.view", compact('positions'));
     }
 

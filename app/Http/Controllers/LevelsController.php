@@ -17,7 +17,8 @@ class LevelsController extends Controller
     {
 //        dd(Level::all());
         //return new Response(view("levels.view")->with("levels", Level::all()));
-        $levels = Level::pluck("name");
+        $levels = Level::pluck("name", "id");
+        //dd($levels);
         return view('levels.view', compact('levels') );
     }
 
