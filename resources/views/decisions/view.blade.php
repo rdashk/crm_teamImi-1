@@ -10,10 +10,10 @@ use App\Models\Decision;
  */
 ?>
 @section("content")
-    @foreach($decisions as $decision)
+    @foreach($decisions as $id => $decision)
         <div class="item">
-            <div>{{$decision->id}}</div>
-            <div>{{$decision->name}}</div>
+            <div>{{$id+1}}</div>
+            <div>{{$decision}}</div>
         </div>
     @endforeach
 @endsection

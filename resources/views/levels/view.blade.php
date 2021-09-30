@@ -10,10 +10,10 @@ use App\Models\Level
  */
 ?>
 @section("content")
-    @foreach($levels as $level)
+    @foreach($levels as $id => $level)
         <div class="item">
-            <div>{{$level->id}}</div>
-            <div>{{$level->name}}</div>
+            <div>{{$id+1}}</div>
+            <div>{{$level}}</div>
         </div>
     @endforeach
 @endsection

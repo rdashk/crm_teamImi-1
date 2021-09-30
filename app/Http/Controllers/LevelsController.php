@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Level;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\View\View;
 
 class LevelsController extends Controller
 {
@@ -17,7 +16,9 @@ class LevelsController extends Controller
     public function index()
     {
 //        dd(Level::all());
-        return new Response(view("levels.view")->with("levels", Level::all()));
+        //return new Response(view("levels.view")->with("levels", Level::all()));
+        $levels = Level::pluck("name");
+        return view('levels.view', compact('levels') );
     }
 
     /**

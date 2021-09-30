@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Decision;
+use App\Models\Position;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -16,7 +17,9 @@ class DecisionsController extends Controller
      */
     public function index()
     {
-        return new Response(view("decisions.view")->with("decisions", Decision::all()));
+        // сделает из таблицы выборку id и name, отдаст нужную вам структуру
+        $decisions = Decision::pluck("name");
+        return view('decisions.view', compact('decisions') );
     }
 
     /**

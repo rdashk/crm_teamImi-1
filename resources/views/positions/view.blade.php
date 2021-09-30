@@ -10,10 +10,10 @@ use App\Models\Position
  */
 ?>
 @section("content")
-    @foreach($positions as $position)
+    @foreach($positions as $id => $position)
         <div class="item">
-            <div>{{$position->id}}</div>
-            <div>{{$position->name}}</div>
+            <div>{{$id+1}}</div>
+            <div>{{$position}}</div>
         </div>
     @endforeach
 @endsection
