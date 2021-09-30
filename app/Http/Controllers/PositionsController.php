@@ -16,8 +16,7 @@ class PositionsController extends Controller
      */
     public function index()
     {
-        $positions = Position::pluck("name");
-        return view("positions.view", compact('positions'));
+        return new Response(view("positions.view"));
     }
 
     /**

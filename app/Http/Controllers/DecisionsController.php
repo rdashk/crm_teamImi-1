@@ -17,9 +17,7 @@ class DecisionsController extends Controller
      */
     public function index()
     {
-        // сделает из таблицы выборку id и name, отдаст нужную вам структуру
-        $decisions = Decision::pluck("name");
-        return view('decisions.view', compact('decisions') );
+        return new Response(view('decisions.view'));
     }
 
     /**
