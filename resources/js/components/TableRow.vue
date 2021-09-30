@@ -3,7 +3,7 @@
          v-on:mouseleave="mouseLeave"
          style="cursor: pointer;">
         <transition name="slide-left-fade">
-            <div :class="buttonsClass" v-if="show" id="deleteButton">
+            <div :class="buttonsClass" v-if="show" style="position: absolute; left: -2.1em;">
                 <button class="btn btn-outline-danger pl-2 pr-2 pt-2 pb-2" @click="deleteBrief">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-trash"
@@ -50,7 +50,7 @@
 
 
 export default {
-    name: "DashBoardTableRow",
+    name: "TableRow",
     props: {
         created_at: String,
         decision_id: Number,
@@ -127,9 +127,5 @@ export default {
 .slide-left-fade-enter, .slide-left-fade-leave-to {
     transform: translateX(-15px);
     opacity: 0;
-}
-#deleteButton{
-    position: absolute;
-    left: -2.1em;
 }
 </style>

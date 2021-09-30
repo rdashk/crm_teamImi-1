@@ -4,9 +4,8 @@
 
 <script>
 export default {
-    name: "DashBoardColumn",
+    name: "Column",
     props: {
-        id: String,
         value: String,
     },
 }
