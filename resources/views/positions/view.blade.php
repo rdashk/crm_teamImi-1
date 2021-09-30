@@ -10,10 +10,16 @@ use App\Models\Position
  */
 ?>
 @section("content")
-    @foreach($positions as $id => $position)
-        <div class="item">
-            <div>{{$id+1}}</div>
-            <div>{{$position}}</div>
-        </div>
-    @endforeach
+    <a class="btn col-auto btn-outline-dark mb-3" href="/positions/create">Добавить позицию</a>
+    <div id="toolTable" class="container col-5">
+        <v-tool-table columns="id name" resource="positions"></v-tool-table>
+    </div>
 @endsection
+
+@push('scripts')
+    <script>
+        const table = new Vue({
+            el: "#toolTable",
+        })
+    </script>
+@endpush
