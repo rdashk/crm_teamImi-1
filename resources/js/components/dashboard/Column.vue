@@ -1,5 +1,5 @@
 <template>
-    <div>{{this.value}}</div>
+    <div @click="sort" @click.ctrl="$emit('deleteFromSort')">{{this.value}}</div>
 </template>
 
 <script>
@@ -8,6 +8,11 @@ export default {
     props: {
         value: String,
     },
+    methods: {
+        sort(){
+            this.$emit('sort');
+        }
+    }
 }
 </script>
 
