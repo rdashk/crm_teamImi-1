@@ -26,15 +26,15 @@ use Carbon\Carbon;
     </div>
     <div class="form-group">
         <label for="position_id">Позиция</label>
-        {{Form::select("position_id", Position::getIdName(), null, ["class" => "form-control", "id"=>"position_id"])}}
+        {{Form::select("position_id", $positions, null, ["class" => "form-control", "id"=>"position_id"])}}
     </div>
     <div class="form-group">
         <label for="level_id">Уровень</label>
-        {{Form::select("level_id", Level::getIdName(), null, ["class" => "form-control", "id"=>"level_id"])}}
+        {{Form::select("level_id", $levels, null, ["class" => "form-control", "id"=>"level_id"])}}
     </div>
     <div class="form-group">
         <label for="decision_id">Решение</label>
-        {{Form::select("decision_id", Decision::getIdName(), null, ["class" => "form-control", "id"=>"decision_id"])}}
+        {{Form::select("decision_id", $decisions, null, ["class" => "form-control", "id"=>"decision_id"])}}
     </div>
     <div class="form-group">
         <label for="interview_date">Дата собеседования</label>
@@ -42,15 +42,15 @@ use Carbon\Carbon;
     </div>
     <div class="form-group">
         <label for="skills">Ключевые навыки</label>
-        {{Form::text("skills", null, ["placeholder" => "Ключевые навыки", "class" => "form-control", "id"=>"skills"])}}
+        {{Form::textarea("skills", null, ["placeholder" => "Ключевые навыки", "class" => "form-control", "id"=>"skills"])}}
     </div>
     <div class="form-group">
         <label for="experience">Опыт работы</label>
-        {{Form::text("experience", null, ["placeholder" => "Опыт работы", "class" => "form-control", "id"=>"experience"])}}
+        {{Form::textarea("experience", null, ["placeholder" => "Опыт работы", "class" => "form-control", "id"=>"experience"])}}
     </div>
     <div class="form-group">
         <label for="text">Резюме</label>
-        {{Form::text("text", null, ["placeholder" => "Резюме", "class" => "form-control", "id"=>"text"])}}
+        {{Form::textarea("text", null, ["placeholder" => "Резюме", "class" => "form-control", "id"=>"text"])}}
     </div>
     <div class="form-group">
         {{Form::submit("Отправить", ["class" => "btn form-control btn-outline-dark"])}}
