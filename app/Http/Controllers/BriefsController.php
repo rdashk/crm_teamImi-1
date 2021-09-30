@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brief;
-use DebugBar\DebugBar;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Decision;
+use App\Models\Level;
+use App\Models\Position;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\View\View;
 
 class BriefsController extends Controller
 {
@@ -28,7 +28,11 @@ class BriefsController extends Controller
      */
     public function create()
     {
-        return new Response(view("briefs.create"));
+        return new Response(view("briefs.create")->with([
+            'levels' => Level::pluck("name", "id"),
+            'positions' => Position::pluck("name", "id"),
+            'decisions' => Decision::pluck("name", "id"),
+        ]));
     }
 
     /**
@@ -98,7 +102,12 @@ class BriefsController extends Controller
      */
     public function edit(Brief $brief)
     {
-        return new Response(view("briefs.edit")->with("brief", $brief));
+        return new Response(view("briefs.edit")->with([
+            'brief' => $brief,
+            'levels' => Level::pluck("name", "id"),
+            'positions' => Position::pluck("name", "id"),
+            'decisions' => Decision::pluck("name", "id"),
+        ]));
     }
 
     /**

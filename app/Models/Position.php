@@ -10,13 +10,4 @@ class Position extends Model
     use HasFactory;
 
     public $timestamps = false;
-
-    public static function getIdName(){
-        $val = Position::all();
-        $return = [];
-        foreach ($val as $a){
-            $return[$a->id] = $a->name;
-        }
-        return $return;
-    }
 }

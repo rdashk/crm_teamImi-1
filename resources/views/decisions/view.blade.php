@@ -10,10 +10,16 @@ use App\Models\Decision;
  */
 ?>
 @section("content")
-    @foreach($decisions as $id => $decision)
-        <div class="item">
-            <div>{{$id}}</div>
-            <div>{{$decision}}</div>
-        </div>
-    @endforeach
+    <a class="btn col-auto btn-outline-dark mb-3" href="/decisions/create">Добавить решение</a>
+    <div id="toolTable" class="container col-5">
+        <v-tool-table columns="id name" resource="decisions"></v-tool-table>
+    </div>
 @endsection
+
+@push('scripts')
+    <script>
+        const table = new Vue({
+            el: "#toolTable",
+        })
+    </script>
+@endpush

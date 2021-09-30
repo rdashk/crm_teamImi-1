@@ -4,7 +4,7 @@
          style="cursor: pointer;">
         <transition name="slide-left-fade">
             <div :class="buttonsClass" v-if="show" style="position: absolute; left: -2.1em;">
-                <button class="btn btn-outline-danger pl-2 pr-2 pt-2 pb-2" @click="deleteBrief">
+                <button class="btn btn-outline-danger pl-2 pr-2 pt-2 pb-2" @click="deleteItem">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-trash"
                          viewBox="0 0 16 16">
@@ -16,9 +16,9 @@
                 </button>
             </div>
         </transition>
-        <div data-label="name" class="col-3">{{ name }}</div>
+        <div data-label="name" class="col-2">{{ name }}</div>
         <div data-label="email" class="col-2 overflow-auto">{{ email }}</div>
-        <div data-label="position" class="col-1">{{ position.name }}</div>
+        <div data-label="position" class="col-2">{{ position.name }}</div>
         <div data-label="level" class="col-2">{{ level.name }}</div>
         <div data-label="interview_date" class="col-2">{{ interview_date }}</div>
         <div data-label="decision" class="col-2 overflow-hidden">{{ decision.name }}</div>
@@ -97,7 +97,7 @@ export default {
             this.compClass = this.className;
             this.show = false;
         },
-        deleteBrief(e){
+        deleteItem(e){
             e.stopPropagation();
             console.log("delete brief#" + this.id);
         }
@@ -108,6 +108,7 @@ export default {
 
 <style scoped>
 .bg-accent {
+    transition: background-color .3s;
     background-color: rgba(187, 187, 187, 0.99);
 }
 

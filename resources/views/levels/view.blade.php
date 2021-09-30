@@ -10,10 +10,16 @@ use App\Models\Level
  */
 ?>
 @section("content")
-    @foreach($levels as $id => $level)
-        <div class="item">
-            <div>{{$id}}</div>
-            <div>{{$level}}</div>
-        </div>
-    @endforeach
+    <a class="btn col-auto btn-outline-dark mb-3" href="/levels/create">Добавить уровень</a>
+    <div id="toolTable" class="container col-5">
+        <v-tool-table columns="id name" resource="levels"></v-tool-table>
+    </div>
 @endsection
+
+@push('scripts')
+    <script>
+        const table = new Vue({
+            el: "#toolTable",
+        })
+    </script>
+@endpush
