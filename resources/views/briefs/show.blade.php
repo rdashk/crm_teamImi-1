@@ -12,66 +12,96 @@ use App\Models\Brief;
 @endsection
 
 @section('content')
-    <table class="table table-bordered">
-        <tbody>
-        <tr>
-            <th scope="row">Имя</th>
-            <td>{{$brief->name}}</td>
-        </tr>
-        <tr>
-            <th scope="row">E-mail</th>
-            <td>{{$brief->email}}</td>
-        </tr>
-        <tr>
-            <th scope="row">Позиция</th>
-            <td>{{json_decode($brief->position()->get('name')[0], true)['name']}}</td>
-        </tr>
-        <tr>
-            <th scope="row">Уровень</th>
-            <td>{{json_decode($brief->level()->get('name')[0], true)['name']}}</td>
-        </tr>
-        <tr>
-            <th scope="row">Дата</th>
-            <td>{{$brief->interview_date}}</td>
-        </tr>
-        <tr>
-            <th scope="row">Ключевые навыки</th>
-            <td class="text-truncate" data-toggle="collapse"
-                data-target="#skills" aria-expanded="false" aria-controls="collapseExample">
-                {{$brief->skills}}
+    <div class="container table table-bordered">
+        <div class="row border-bottom">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                Имя
+            </div>
+            <div class="col-8">
+                {{$brief->name}}
+            </div>
+        </div>
+        <div class="row border-bottom">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                E-mail
+            </div>
+            <div class="col-8">
+                {{$brief->email}}
+            </div>
+        </div>
+        <div class="row border-bottom">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                Позиция
+            </div>
+            <div class="col-8">
+                {{json_decode($brief->position()->get('name')[0], true)['name']}}
+            </div>
+        </div>
+        <div class="row border-bottom">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                Уровень
+            </div>
+            <div class="col-8">
+                {{json_decode($brief->level()->get('name')[0], true)['name']}}
+            </div>
+        </div>
+        <div class="row border-bottom">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                Дата
+            </div>
+            <div class="col-8">
+                {{$brief->interview_date}}
+            </div>
+        </div>
+        <div class="row border-bottom">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                Ключевые навыки
+            </div>
+            <div class="col-8" data-toggle="collapse"
+                 data-target="#skills" aria-expanded="false" aria-controls="collapseExample">
+                <div class="text-truncate" style="max-height: 5em;">
+                    <?= ($brief->skills) ?>
+                </div>
                 <div class="collapse" id="skills">
-                    <div class="card card-body">
-                        {{$brief->skills}}
+                    <div class="card card-body w-100">
+                        <?= $brief->skills ?>
                     </div>
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Резюме</th>
-            <td data-toggle="collapse"
-                data-target="#text" aria-expanded="false" aria-controls="collapseExample">
-                {{$brief->text}}
+            </div>
+        </div>
+        <div class="row border-bottom">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                Резюме
+            </div>
+            <div class="col-8" data-toggle="collapse"
+                 data-target="#text" aria-expanded="false" aria-controls="collapseExample">
+                <div class="text-truncate" style="max-height: 5em;">
+                    <?= ($brief->text) ?>
+                </div>
                 <div class="collapse" id="text">
-                    <div class="card card-body">
-                        {{$brief->text}}
+                    <div class="card card-body container">
+                        <?= $brief->text ?>
                     </div>
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Опыт</th>
-            <td data-toggle="collapse"
-                data-target="#experience" aria-expanded="false" aria-controls="collapseExample">
-                {{$brief->experience}}
-                <div class="collapse" id="experience">
-                    <div class="card card-body">
-                        {{$brief->experience}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                Опыт
+            </div>
+            <div class="col-8" data-toggle="collapse"
+                 data-target="#exp" aria-expanded="false" aria-controls="collapseExample">
+                <div class="text-truncate" style="max-height: 5em;">
+                    <?= ($brief->experience) ?>
+                </div>
+                <div class="collapse" id="exp">
+                    <div class="card card-body container">
+                        <?= $brief->experience ?>
                     </div>
                 </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <a type="button" class="btn btn-outline-dark col-auto" href="./{{$brief->id}}/edit">Редактировать</a>
