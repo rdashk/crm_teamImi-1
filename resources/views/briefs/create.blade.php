@@ -57,3 +57,24 @@ use Carbon\Carbon;
     </div>
     {{Form::close()}}
 @endsection
+
+@prepend('scripts')
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#text' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+        ClassicEditor
+            .create( document.querySelector( '#experience' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+        ClassicEditor
+            .create( document.querySelector( '#skills' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+@endprepend
