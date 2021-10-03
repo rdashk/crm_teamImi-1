@@ -62,7 +62,7 @@ use Carbon\Carbon;
 @prepend('scripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
     <script>
-        $(document).on('click', '#submit', createEmail);
+        $(document).on('change', '#name', createEmail);
         function createEmail(){
 
             var arr = $('#name').val().split(' ');
