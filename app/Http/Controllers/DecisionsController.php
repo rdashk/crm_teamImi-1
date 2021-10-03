@@ -29,7 +29,7 @@ class DecisionsController extends Controller
      */
     public function create()
     {
-        return new Response(view('decisions.view'));
+        return new Response(view('decisions.create'));
     }
 
     /**
@@ -40,8 +40,13 @@ class DecisionsController extends Controller
      */
     public function store(Request $request)
     {
-        $decision = new Decision($request->all());
-        //dd($decision);
+        //dd($request);
+
+        $decision = new Decision;
+        $request->validate([
+            'new_decision' => 'bail|required',
+        ]);
+        $decision->name = $request->new_decision;
         $decision->save();
         return new Response(view("decisions.view")->with("decisions", Decision::all()));
     }
