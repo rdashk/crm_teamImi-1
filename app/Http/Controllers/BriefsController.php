@@ -8,6 +8,7 @@ use App\Models\Level;
 use App\Models\Position;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Spatie\Browsershot\Browsershot;
 
 class BriefsController extends Controller
 {
@@ -33,6 +34,7 @@ class BriefsController extends Controller
             'positions' => Position::pluck("name", "id"),
             'decisions' => Decision::pluck("name", "id"),
         ]));
+        //return Browsershot::html('/briefs/create')->format('A4')->save("name" +'.pdf');
     }
 
     /**

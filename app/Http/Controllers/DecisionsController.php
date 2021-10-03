@@ -29,7 +29,7 @@ class DecisionsController extends Controller
      */
     public function create()
     {
-        return new Response(view('decisions.create'));
+        return new Response(view('decisions.view'));
     }
 
     /**
@@ -41,8 +41,9 @@ class DecisionsController extends Controller
     public function store(Request $request)
     {
         $decision = new Decision($request->all());
+        //dd($decision);
         $decision->save();
-        return new Response();
+        return new Response(view("decisions.view")->with("decisions", Decision::all()));
     }
 
     /**

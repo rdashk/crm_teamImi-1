@@ -68,7 +68,7 @@ use Carbon\Carbon;
             var arr = $('#name').val().split(' ');
             //console.log(translit(arr[0]) + "." + translit(arr[1]) + "-dev@adict.ru");
             var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-dev@adict.ru";
-            $('#email').setAttribute('value', val_email);
+            $('#email').val(val_email);
         }
 
         function translit(word) {
