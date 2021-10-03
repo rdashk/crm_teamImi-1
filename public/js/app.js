@@ -2104,10 +2104,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Column",
   props: {
-    value: String
+    value: String,
+    data: String,
+    filter: Boolean
   },
   methods: {
     sort: function sort() {
@@ -2131,18 +2141,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _TableRow__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TableRow */ "./resources/js/components/dashboard/TableRow.vue");
 /* harmony import */ var _Column__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Column */ "./resources/js/components/dashboard/Column.vue");
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2170,17 +2168,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   data: function data() {
     return {
-      rows: [],
-      fields: {
-        'name': false,
-        'email': false,
-        'position': false,
-        'level': false,
-        'date': false,
-        'decision': false
-      },
-      sortingColumns: new Set(),
-      ctrlPress: false
+      rows: []
     };
   },
   props: {
@@ -2193,89 +2181,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return _this.rows = response.data;
     });
   },
-  methods: {
-    sortByName: function sortByName(event) {
-      this.fields['name'] = !this.fields['name'];
-      this.sortingColumns.add('name');
-      this.sortData();
-    },
-    deleteName: function deleteName() {
-      this.sortingColumns["delete"]('name');
-      this.sortData();
-    },
-    sortByEmail: function sortByEmail(event) {
-      this.fields['email'] = !this.fields['email'];
-      this.sortingColumns.add('email');
-      this.sortData();
-    },
-    deleteEmail: function deleteEmail() {
-      this.sortingColumns["delete"]('email');
-      this.sortData();
-    },
-    sortByPosition: function sortByPosition(event) {
-      this.fields['position'] = !this.fields['position'];
-      this.sortingColumns.add('position');
-      this.sortData();
-    },
-    deletePosition: function deletePosition() {
-      this.sortingColumns["delete"]('position');
-      this.sortData();
-    },
-    sortByLevel: function sortByLevel(event) {
-      this.fields['level'] = !this.fields['level'];
-      this.sortingColumns.add('level');
-      this.sortData();
-    },
-    deleteLevel: function deleteLevel() {
-      this.sortingColumns["delete"]('level');
-      this.sortData();
-    },
-    sortByDate: function sortByDate() {
-      this.fields['date'] = !this.fields['date'];
-      this.sortingColumns.add('date');
-      this.sortData();
-    },
-    deleteDate: function deleteDate() {
-      this.sortingColumns["delete"]('date');
-      this.sortData();
-    },
-    sortByDecision: function sortByDecision(event) {
-      this.fields['decision'] = !this.fields['decision'];
-      this.sortingColumns.add('decision');
-      this.sortData();
-    },
-    deleteDecision: function deleteDecision() {
-      this.sortingColumns["delete"]('decision');
-      this.sortData();
-    },
-    sortData: function sortData() {
-      console.log(this.sortingColumns);
-      var request = "";
-      var key = 0;
-
-      var _iterator = _createForOfIteratorHelper(this.sortingColumns),
-          _step;
-
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var item = _step.value;
-          console.log(item);
-          var comma = !(key === this.sortingColumns.length - 1 || key === 0);
-          request += (comma ? "," : "") + (this.fields[item] ? item : "-" + item);
-          key++;
-        } // axios
-        //     .get('http://127.0.0.1:8000/api/briefs?sort=' + request)
-        //     .then(response => (this.rows = response.data))
-
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-
-      console.log("request: " + request);
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -39042,23 +38948,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      on: {
-        click: [
-          _vm.sort,
-          function($event) {
-            if (!$event.ctrlKey) {
-              return null
-            }
-            return _vm.$emit("deleteFromSort")
-          }
-        ]
-      }
-    },
-    [_vm._v(_vm._s(this.value))]
-  )
+  return _c("div", [
+    _c(
+      "a",
+      {
+        staticClass: "btn btn-light dropdown-toggle pl-1 pr-1",
+        attrs: {
+          href: "#" + _vm.data,
+          role: "button",
+          id: "dropdownMenuLink",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [_vm._v(_vm._s(this.value))]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "dropdown-menu", attrs: { "aria-labelledby": _vm.data } },
+      [
+        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+          _vm._v("ASC")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+          _vm._v("DESC")
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+          _vm._v("REFRESH")
+        ]),
+        _vm._v(" "),
+        _vm.filter
+          ? _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+              _vm._v("FILTER")
+            ])
+          : _vm._e()
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39099,39 +39029,39 @@ var render = function() {
         },
         [
           _c("Column", {
-            staticClass: "col-2 text-center pl-0 pr-0",
-            attrs: { value: "Имя" },
-            on: { sort: _vm.sortByName, deleteFromSort: _vm.deleteName }
+            staticClass:
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+            attrs: { value: "Имя", data: "name", filter: false }
           }),
           _vm._v(" "),
           _c("Column", {
-            staticClass: "col-2 text-center pl-0 pr-0",
-            attrs: { value: "E-mail" },
-            on: { sort: _vm.sortByEmail, deleteFromSort: _vm.deleteEmail }
+            staticClass:
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+            attrs: { value: "E-mail", data: "email", filter: false }
           }),
           _vm._v(" "),
           _c("Column", {
-            staticClass: "col-2 text-center pl-0 pr-0",
-            attrs: { value: "Позиция" },
-            on: { sort: _vm.sortByPosition, deleteFromSort: _vm.deletePosition }
+            staticClass:
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+            attrs: { value: "Позиция", data: "position", filter: true }
           }),
           _vm._v(" "),
           _c("Column", {
-            staticClass: "col-2 text-center pl-0 pr-0",
-            attrs: { value: "Уровень" },
-            on: { sort: _vm.sortByLevel, deleteFromSort: _vm.deleteLevel }
+            staticClass:
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+            attrs: { value: "Уровень", data: "level", filter: true }
           }),
           _vm._v(" "),
           _c("Column", {
-            staticClass: "col-2 text-center pl-0 pr-0",
-            attrs: { value: "Дата" },
-            on: { sort: _vm.sortByDate, deleteFromSort: _vm.deleteDate }
+            staticClass:
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+            attrs: { value: "Дата", data: "date", filter: true }
           }),
           _vm._v(" "),
           _c("Column", {
-            staticClass: "col-2 text-center pl-0 pr-0",
-            attrs: { value: "Решение" },
-            on: { sort: _vm.sortByDecision, deleteFromSort: _vm.deleteDecision }
+            staticClass:
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+            attrs: { value: "Решение", data: "decision", filter: true }
           })
         ],
         1
