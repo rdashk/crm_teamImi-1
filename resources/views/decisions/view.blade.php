@@ -10,7 +10,28 @@ use App\Models\Decision;
  */
 ?>
 @section("content")
-    <a class="btn col-auto btn-outline-dark mb-3" href="/decisions/create">Добавить решение</a>
+
+    @include('errors')
+
+    {{Form::open(["action" => 'App\Http\Controllers\DecisionsController@store', "method" => "POST", "class" => "container"])}}
+    @csrf
+
+    <div class="container col-5">
+
+    <div class="form-group">
+        <div class="row mb-3">
+            <div class="col">
+                {{Form::text("new_decision", null, ["placeholder" => "Новое решение", "class" => "form-control", "id"=>"new_decision"])}}
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-outline-dark">Добавить</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    {{Form::close()}}
+    </div>
+
     <div id="toolTable" class="container col-5">
         <v-tool-table columns="id name" resource="decisions"></v-tool-table>
     </div>

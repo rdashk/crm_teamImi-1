@@ -9,7 +9,8 @@ class Brief extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["name",
+    protected $fillable = [
+        "name",
         "email",
         "position_id",
         "level_id",

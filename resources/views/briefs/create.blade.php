@@ -17,8 +17,9 @@ use Carbon\Carbon;
 
         @include('errors')
 
-        <label for="name">Имя</label>
-        {{Form::text("name", null, ["placeholder" => "Имя", "class" => "form-control", "id"=>"name"])}}
+        <label for="name">ФИО</label>
+        {{Form::text("name", null, ["placeholder" => "ФИО", "class" => "form-control", "id"=>"name"])}}
+
     </div>
     <div class="form-group">
         <label for="email">E-mail</label>
@@ -53,7 +54,7 @@ use Carbon\Carbon;
         {{Form::textarea("text", null, ["placeholder" => "Резюме", "class" => "form-control", "id"=>"text"])}}
     </div>
     <div class="form-group">
-        {{Form::submit("Отправить", ["class" => "btn form-control btn-outline-dark"])}}
+        {{Form::submit("Отправить", ["class" => "btn bth-submit form-control btn-outline-dark", "id" => "submit"])}}
     </div>
     {{Form::close()}}
 @endsection
@@ -61,6 +62,42 @@ use Carbon\Carbon;
 @prepend('scripts')
     <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
     <script>
+        $(document).on('change', '#name', createEmail);
+        function createEmail(){
+
+            var arr = $('#name').val().split(' ');
+            //console.log(translit(arr[0]) + "." + translit(arr[1]) + "-dev@adict.ru");
+            var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-dev@adict.ru";
+            $('#email').val(val_email);
+        }
+
+        function translit(word) {
+            var converter = {
+                'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+                'е': 'e', 'ё': 'e', 'ж': 'zh', 'з': 'z', 'и': 'i',
+                'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+                'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+                'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch',
+                'ш': 'sh', 'щ': 'sch', 'ь': '', 'ы': 'y', 'ъ': '',
+                'э': 'e', 'ю': 'yu', 'я': 'ya'
+            };
+
+            word = word.toLowerCase();
+
+            var answer = '';
+            for (var i = 0; i < word.length; ++i) {
+                if (converter[word[i]] == undefined) {
+                    answer += word[i];
+                } else {
+                    answer += converter[word[i]];
+                }
+            }
+
+            answer = answer.replace(/[^-0-9a-z]/g, '-');
+            answer = answer.replace(/[-]+/g, '-');
+            answer = answer.replace(/^\-|-$/g, '');
+            return answer;
+        }
         ClassicEditor
             .create( document.querySelector( '#text' ) )
             .catch( error => {

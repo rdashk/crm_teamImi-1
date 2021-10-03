@@ -17,7 +17,9 @@ class DecisionsController extends Controller
      */
     public function index()
     {
-        return new Response(view('decisions.view'));
+        // сделает из таблицы выборку id и name, отдаст нужную вам структуру
+        $decisions = Decision::pluck("name", "id");
+        return view('decisions.view', compact('decisions') );
     }
 
     /**
@@ -38,9 +40,15 @@ class DecisionsController extends Controller
      */
     public function store(Request $request)
     {
-        $decision = new Decision($request->all());
+        //dd($request);
+
+        $decision = new Decision;
+        $request->validate([
+            'new_decision' => 'bail|required',
+        ]);
+        $decision->name = $request->new_decision;
         $decision->save();
-        return new Response();
+        return new Response(view("decisions.view")->with("decisions", Decision::all()));
     }
 
     /**

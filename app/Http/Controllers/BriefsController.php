@@ -8,6 +8,7 @@ use App\Models\Level;
 use App\Models\Position;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Spatie\Browsershot\Browsershot;
 
 class BriefsController extends Controller
 {
@@ -33,6 +34,7 @@ class BriefsController extends Controller
             'positions' => Position::pluck("name", "id"),
             'decisions' => Decision::pluck("name", "id"),
         ]));
+        //return Browsershot::html('/briefs/create')->format('A4')->save("name" +'.pdf');
     }
 
     /**
@@ -61,24 +63,20 @@ class BriefsController extends Controller
             'email' => 'bail|required',
             'position_id' => 'bail|required',
             'level_id' => 'bail|required',
-            'interview_date' => 'bail|required',
             'skills' => 'bail|required',
             'text' => 'bail|required',
             'experience' => 'bail|required',
             'decision_id' => 'bail|required',
         ], [
             'name.required' => 'ФИО',
-            'email.required' => 'email',
             'position_id.required' => 'позиция',
             'level_id.required' => 'уровень',
-            'interview_date.required' => 'дата',
             'skills.required' => 'навыки',
             'experience.required' => 'опыт',
             'decision_id.required' => 'решение',
             'text.required' => 'резюме',
         ]);
         $brief->save();
-
 
         return new Response(view("briefs.view")->with("briefs", Brief::all()));
     }
