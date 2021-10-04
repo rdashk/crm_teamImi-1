@@ -2112,17 +2112,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Column",
   props: {
     value: String,
     data: String,
-    filter: Boolean
+    filter: Boolean,
+    filterArr: []
   },
   methods: {
-    sort: function sort() {
-      this.$emit('sort');
+    clickSort: function clickSort() {
+      this.asc = !this.asc;
+      this.ascText = this.asc ? "Я-А" : "А-Я";
+      this.$emit('changed', {
+        'sorts': {
+          'data': this.data,
+          'name': (!this.asc ? "" : "-") + this.data
+        }
+      });
+    },
+    deleteFromSort: function deleteFromSort() {
+      this.$emit('del', this.data);
     }
+  },
+  data: function data() {
+    return {
+      req: '',
+      ascText: "А-Я",
+      asc: true
+    };
   }
 });
 
@@ -2168,20 +2187,46 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      rows: []
+      rows: [],
+      request: 'http://127.0.0.1:8000/api/briefs',
+      req: "",
+      sorts: [],
+      filters: []
     };
   },
   props: {
     columns: String
   },
   created: function created() {
-    var _this = this;
-
-    axios.get('http://127.0.0.1:8000/api/normal-briefs').then(function (response) {
-      return _this.rows = response.data;
-    });
+    this.load();
   },
-  methods: {}
+  methods: {
+    load: function load() {
+      var _this = this;
+
+      var req = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      this.req = req;
+      axios.get(this.request + req).then(function (response) {
+        return _this.rows = response.data;
+      });
+    },
+    changes: function changes(arr) {
+      if (arr.hasOwnProperty('sorts')) {
+        this.sorts[arr['sorts']['data']] = arr['sorts']['name'];
+        var req = Object.values(this.sorts).join();
+        this.load("?sorts=" + req);
+      }
+
+      if (arr.hasOwnProperty('filters')) {
+        console.log('filter');
+      }
+    },
+    deleteFromSort: function deleteFromSort(name) {
+      delete this.sorts[name];
+      var req = Object.values(this.sorts).join();
+      if (this.sorts.length !== 0) this.load('?sorts=' + req);
+    }
+  }
 });
 
 /***/ }),
@@ -38969,17 +39014,39 @@ var render = function() {
       "div",
       { staticClass: "dropdown-menu", attrs: { "aria-labelledby": _vm.data } },
       [
-        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-          _vm._v("ASC")
-        ]),
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-item",
+            attrs: { href: "#" },
+            on: { click: _vm.clickSort }
+          },
+          [_vm._v(_vm._s(this.ascText))]
+        ),
         _vm._v(" "),
-        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-          _vm._v("DESC")
-        ]),
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-item",
+            attrs: { href: "#" },
+            on: { click: _vm.deleteFromSort }
+          },
+          [_vm._v("СБРОСИТЬ СОРТИРОВКУ")]
+        ),
         _vm._v(" "),
-        _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-          _vm._v("REFRESH")
-        ]),
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-item",
+            attrs: { href: "#" },
+            on: {
+              click: function($event) {
+                return _vm.$emit("change", _vm.req)
+              }
+            }
+          },
+          [_vm._v("REFRESH")]
+        ),
         _vm._v(" "),
         _vm.filter
           ? _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
@@ -39031,37 +39098,43 @@ var render = function() {
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Имя", data: "name", filter: false }
+            attrs: { value: "Имя", data: "name", filter: false },
+            on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "E-mail", data: "email", filter: false }
+            attrs: { value: "E-mail", data: "email", filter: false },
+            on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Позиция", data: "position", filter: true }
+            attrs: { value: "Позиция", data: "position", filter: true },
+            on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Уровень", data: "level", filter: true }
+            attrs: { value: "Уровень", data: "level", filter: true },
+            on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Дата", data: "date", filter: true }
+            attrs: { value: "Дата", data: "date", filter: true },
+            on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Решение", data: "decision", filter: true }
+            attrs: { value: "Решение", data: "decision", filter: true },
+            on: { changed: _vm.changes, del: _vm.deleteFromSort }
           })
         ],
         1

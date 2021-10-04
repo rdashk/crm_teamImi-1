@@ -14,7 +14,7 @@ class BriefsController extends Controller
      */
     public function index()
     {
-        return Brief::all();
+        return Brief::with("level", "position", "decision")->get();
     }
 
     /**
