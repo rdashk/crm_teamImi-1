@@ -10,7 +10,23 @@ use App\Models\Level
  */
 ?>
 @section("content")
-    <a class="btn col-auto btn-outline-dark mb-3" href="/levels/create">Добавить уровень</a>
+
+    {{Form::open(["action" => 'App\Http\Controllers\LevelsController@store', "method" => "POST", "class" => "container"])}}
+    @csrf
+
+    <div class="container col-5">
+        <div class="form-group">
+            <div class="row mb-3">
+                <div class="col">
+                    {{Form::text("new_level", null, ["placeholder" => "Новый уровень", "class" => "form-control", "id"=>"new_level"])}}
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-outline-dark">Добавить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="toolTable" class="container col-5">
         <v-tool-table columns="id name" resource="levels"></v-tool-table>
     </div>

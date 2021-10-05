@@ -15,10 +15,8 @@ class LevelsController extends Controller
      */
     public function index()
     {
-//        dd(Level::all());
         //return new Response(view("levels.view")->with("levels", Level::all()));
         $levels = Level::pluck("name", "id");
-        //dd($levels);
         return view('levels.view', compact('levels') );
     }
 
@@ -40,11 +38,16 @@ class LevelsController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new Level($request->all());
-
-        $model->save();
-
-        return new Response();
+        $level = new Level;
+        $request->validate([
+            'new_level' => 'bail|required',
+        ],
+        [
+            'new_level.required' => 'Введите название уровня',
+        ]);
+        $level->name = $request->new_level;
+        $level->save();
+        return new Response(view('levels.view')->with('levels', Level::all()));
     }
 
     /**

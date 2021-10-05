@@ -12,9 +12,21 @@ class BriefsController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Brief::with("level", "position", "decision")->get();
+        $query = Brief::query();
+
+        $query->when(request()->filled('filter'), function ($query) {
+            $filters = explode(', ', request('filter'));
+
+            foreach ($filters as $filter) {
+                [$criteria, $value] = explode(' :', $filter);
+                $query->where($criteria, $value);
+            }
+            return $query;
+        });
+
+        return $query->with("level", "position", "decision")->get();
     }
 
     /**
@@ -61,8 +73,7 @@ class BriefsController extends Controller
      */
     public function destroy($id)
     {
-        $brief = Brief::findOrFail($id);
-        $brief->delete();
-        return '';
+        $brief = Brief::findOrFail($id)->delete();
+        return $brief;
     }
 }

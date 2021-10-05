@@ -60,7 +60,6 @@ class BriefsController extends Controller
         $brief->fill($values);
         $request->validate([
             'name' => 'bail|required',
-            'email' => 'bail|required',
             'position_id' => 'bail|required',
             'level_id' => 'bail|required',
             'skills' => 'bail|required',
