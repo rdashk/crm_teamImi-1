@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brief;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class BriefsController extends Controller
@@ -12,15 +13,15 @@ class BriefsController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index(Request $request)
+    public function index()
     {
         $query = Brief::query();
 
         $query->when(request()->filled('filter'), function ($query) {
-            $filters = explode(', ', request('filter'));
+            $filters = explode(',', request('filter'));
 
             foreach ($filters as $filter) {
-                [$criteria, $value] = explode(' :', $filter);
+                [$criteria, $value] = explode(':', $filter);
                 $query->where($criteria, $value);
             }
             return $query;
