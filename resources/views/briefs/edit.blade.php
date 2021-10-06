@@ -35,13 +35,13 @@ use App\Models\Brief;
         {{Form::date("interview_date", $brief->interview_date, ["class" => "form-control", "id"=>"interview_date"])}}
 
         <label for="skills">Ключевые навыки</label>
-        {{Form::textarea("skills", $brief->skills, ["placeholder" => "Ключевые навыки", "class" => "form-control", "id"=>"skills"])}}
+        {{Form::textarea("skills", $brief->skills, ["placeholder" => "Ключевые навыки", "class" => "form-control editor", "id"=>"skills"])}}
 
         <label for="experience">Опыт работы</label>
-        {{Form::textarea("experience", $brief->experience, ["placeholder" => "Опыт работы", "class" => "form-control", "id"=>"experience"])}}
+        {{Form::textarea("experience", $brief->experience, ["placeholder" => "Опыт работы", "class" => "form-control editor", "id"=>"experience"])}}
 
         <label for="text">Резюме</label>
-        {{Form::textarea("text", $brief->text, ["placeholder" => "Резюме", "class" => "form-control", "id"=>"text"])}}
+        {{Form::textarea("text", $brief->text, ["placeholder" => "Резюме", "class" => "form-control editor", "id"=>"text"])}}
 
         {{Form::submit("Отправить", ["class" => "btn form-control btn-outline-dark"])}}
         <div id="editor"></div>
