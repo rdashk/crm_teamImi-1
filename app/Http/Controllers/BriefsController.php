@@ -40,9 +40,8 @@ class BriefsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
      */
-    public function store(Request $request): Response
+    public function store(Request $request)
     {
         $brief = new Brief();
         $values = $request->all([
@@ -76,7 +75,7 @@ class BriefsController extends Controller
         ]);
         $brief->save();
 
-        return new Response(view("briefs.view")->with("briefs", Brief::all()));
+        return redirect('/briefs/');
     }
 
     /**
