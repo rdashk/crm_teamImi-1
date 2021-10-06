@@ -217,10 +217,10 @@
   display: table; }
 
 .medium-editor-element {
-    min-width: 54px;
-    width: auto;
+    min-height: 54px;
+    height: auto;
   word-wrap: break-word;
-  min-height: 30px; }
+}
   .medium-editor-element img {
     max-width: 100%; }
   .medium-editor-element sub {
