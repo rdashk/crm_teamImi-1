@@ -115,12 +115,11 @@ class BriefsController extends Controller
      *
      * @param Request $request
      * @param Brief $brief
-     * @return Response
      */
-    public function update(Request $request, Brief $brief): Response
+    public function update(Request $request, Brief $brief)
     {
         $brief->update($request->all());
-        return new Response(view("briefs.view")->with("brief", $brief));
+        return redirect()->back();
     }
 
     /**
