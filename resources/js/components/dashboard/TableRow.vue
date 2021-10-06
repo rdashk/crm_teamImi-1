@@ -99,7 +99,9 @@ export default {
         },
         deleteItem(e){
             e.stopPropagation();
-            console.log("delete brief#" + this.id);
+            axios
+                .delete('http://127.0.0.1:8000/api/briefs/'+this.id);
+            this.$emit('reload');
         }
     }
 }

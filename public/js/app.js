@@ -2340,7 +2340,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteItem: function deleteItem(e) {
       e.stopPropagation();
-      console.log("delete brief#" + this.id);
+      axios["delete"]('http://127.0.0.1:8000/api/briefs/' + this.id);
+      this.$emit('reload');
     }
   }
 });
@@ -2423,7 +2424,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteItem: function deleteItem(e) {
       e.stopPropagation();
-      console.log("delete brief#" + this.id);
+      axios["delete"]('http://127.0.0.1:8000/api/' + this.resource + "/" + this.id);
+      this.$emit('reload');
     }
   }
 });
@@ -2473,11 +2475,16 @@ __webpack_require__.r(__webpack_exports__);
     resource: String
   },
   created: function created() {
-    var _this = this;
+    this.load();
+  },
+  methods: {
+    load: function load() {
+      var _this = this;
 
-    axios.get('http://127.0.0.1:8000/api/' + this.resource).then(function (response) {
-      return _this.rows = response.data;
-    });
+      axios.get('http://127.0.0.1:8000/api/' + this.resource).then(function (response) {
+        return _this.rows = response.data;
+      });
+    }
   }
 });
 
@@ -39143,7 +39150,12 @@ var render = function() {
       _vm._l(this.rows, function($data) {
         return _c(
           "div",
-          [_c("TableRow", _vm._b({}, "TableRow", $data, false))],
+          [
+            _c(
+              "TableRow",
+              _vm._b({ on: { reload: _vm.load } }, "TableRow", $data, false)
+            )
+          ],
           1
         )
       })
@@ -39572,7 +39584,7 @@ var render = function() {
             _c(
               "TableRow",
               _vm._b(
-                { attrs: { resource: _vm.resource } },
+                { attrs: { resource: _vm.resource }, on: { reload: _vm.load } },
                 "TableRow",
                 $data,
                 false

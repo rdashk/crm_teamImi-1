@@ -5,7 +5,7 @@
             <Column value="name" class="col-9 text-center pl-0 pr-0"></Column>
         </div>
         <div v-for="$data in this.rows">
-            <TableRow v-bind="$data" :resource="resource">
+            <TableRow v-bind="$data" :resource="resource" v-on:reload="load">
             </TableRow>
         </div>
     </div>
@@ -26,10 +26,15 @@ export default {
         resource: String,
     },
     created() {
-        axios
-            .get('http://127.0.0.1:8000/api/'+this.resource)
-            .then(response => (this.rows = response.data));
+        this.load();
     },
+    methods: {
+        load(){
+            axios
+                .get('http://127.0.0.1:8000/api/'+this.resource)
+                .then(response => (this.rows = response.data));
+        },
+    }
 }
 </script>
 

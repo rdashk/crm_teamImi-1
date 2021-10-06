@@ -9,7 +9,7 @@
             <Column value="Решение" class="col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0" data="decision" :filter="true" v-on:changed="changes" v-on:del="deleteFromSort"></Column>
         </div>
         <div v-for="$data in this.rows">
-            <TableRow v-bind="$data">
+            <TableRow v-bind="$data" v-on:reload="load">
             </TableRow>
         </div>
     </div>
