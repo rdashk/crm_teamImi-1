@@ -8,7 +8,7 @@ use App\Models\Level;
 use App\Models\Position;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Spatie\Browsershot\Browsershot;
+use VerumConsilium\Browsershot\PDF;
 
 class BriefsController extends Controller
 {
@@ -17,7 +17,7 @@ class BriefsController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(): Response
     {
         return new Response(view("briefs.view"));
     }
@@ -27,14 +27,13 @@ class BriefsController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create(): Response
     {
         return new Response(view("briefs.create")->with([
             'levels' => Level::pluck("name", "id"),
             'positions' => Position::pluck("name", "id"),
             'decisions' => Decision::pluck("name", "id"),
         ]));
-        //return Browsershot::html('/briefs/create')->format('A4')->save("name" +'.pdf');
     }
 
     /**
@@ -85,9 +84,14 @@ class BriefsController extends Controller
      *
      * @param Brief $brief
      * @return Response
+     * @throws \Throwable
      */
-    public function show(Brief $brief)
+    public function show(Brief $brief): Response
     {
+        /* скачивание pdf
+        return (new PDF)->loadView('briefs.show', compact('brief'))
+            ->margins(20, 0, 0, 20)
+            ->download();*/
         return new Response(view("briefs.show")->with("brief", $brief));
     }
 
@@ -97,7 +101,7 @@ class BriefsController extends Controller
      * @param Brief $brief
      * @return Response
      */
-    public function edit(Brief $brief)
+    public function edit(Brief $brief): Response
     {
         return new Response(view("briefs.edit")->with([
             'brief' => $brief,
@@ -117,7 +121,7 @@ class BriefsController extends Controller
     public function update(Request $request, Brief $brief): Response
     {
         $brief->update($request->all());
-        return new Response(view("briefs.show")->with("brief", $brief));
+        return new Response(view("briefs.view")->with("brief", $brief));
     }
 
     /**
