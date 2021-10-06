@@ -50,7 +50,7 @@ use App\Models\Brief;
 @endsection
 
 @prepend('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+    <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
     <script>
         $(document).on('change', '#name', createEmail);
         $(document).on('change', '#position_id', createEmail);
@@ -88,21 +88,14 @@ use App\Models\Brief;
             answer = answer.replace(/^\-|-$/g, '');
             return answer;
         }
-        ClassicEditor
-            .create( document.querySelector( '#text' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-        ClassicEditor
-            .create( document.querySelector( '#experience' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-        ClassicEditor
-            .create( document.querySelector( '#skills' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+    </script>
+    <script>
+        var editors = document.getElementsByClassName('editor');
+        var editor = new MediumEditor(editors, {
+            toolbar: {
+                buttons: ['bold', 'italic', 'underline', 'anchor'],
+            }
+        });
     </script>
 @endprepend
 

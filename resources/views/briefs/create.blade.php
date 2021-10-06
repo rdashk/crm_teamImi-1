@@ -45,15 +45,15 @@ use Carbon\Carbon;
     </div>
     <div class="form-group">
         <label for="skills">Ключевые навыки</label>
-        {{Form::textarea("skills", null, ["placeholder" => "Ключевые навыки", "class" => "form-control", "id"=>"skills"])}}
+        {{Form::textarea("skills", null, ["placeholder" => "Ключевые навыки", "class" => "form-control editor", "id"=>"skills"])}}
     </div>
     <div class="form-group">
         <label for="experience">Опыт работы</label>
-        {{Form::textarea("experience", null, ["placeholder" => "Опыт работы", "class" => "form-control", "id"=>"experience"])}}
+        {{Form::textarea("experience", null, ["placeholder" => "Опыт работы", "class" => "form-control editor", "id"=>"experience"])}}
     </div>
     <div class="form-group">
         <label for="text">Резюме</label>
-        {{Form::textarea("text", null, ["placeholder" => "Резюме", "class" => "form-control", "id"=>"text"])}}
+        {{Form::textarea("text", null, ["placeholder" => "Резюме", "class" => "form-control editor", "id"=>"text"])}}
     </div>
     <div class="form-group">
         {{Form::submit("Отправить", ["class" => "btn bth-submit form-control btn-outline-dark", "id" => "submit"])}}
@@ -62,7 +62,6 @@ use Carbon\Carbon;
 @endsection
 
 @prepend('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
     <script>
         $(document).on('change', '#name', createEmail);
         $(document).on('change', '#position_id', createEmail);
@@ -100,20 +99,14 @@ use Carbon\Carbon;
             answer = answer.replace(/^\-|-$/g, '');
             return answer;
         }
-        ClassicEditor
-            .create( document.querySelector( '#text' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-        ClassicEditor
-            .create( document.querySelector( '#experience' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-        ClassicEditor
-            .create( document.querySelector( '#skills' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+    </script>
+    <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
+    <script>
+        var editors = document.getElementsByClassName('editor');
+        var editor = new MediumEditor(editors, {
+            toolbar: {
+                buttons: ['bold', 'italic', 'underline', 'anchor'],
+            }
+        });
     </script>
 @endprepend
