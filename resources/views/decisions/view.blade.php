@@ -18,10 +18,10 @@ use App\Models\Decision;
                     <input type="text" placeholder="Новое решение" class="form-control" id="new_decision">
                 </div>
                 <div class="col" id="submit">
-                    <button type="submit" class="btn btn-outline-dark" v-if="!load" v-on:click="click">Добавить</button>
-                    <div class="spinner-border btn btn-outline-dark" role="status" v-if="load">
-                        <span class="sr-only"></span>
-                    </div>
+                    <button type="submit" class="btn btn-outline-dark" v-on:click="click">
+                        <span v-if="!load">Добавить</span>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" v-if="load"></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -47,8 +47,9 @@ use App\Models\Decision;
             },
             methods: {
                 click(){
-                    this.load = true;
                     let elem = document.getElementById('new_decision');
+                    if (elem.value === "") return;
+                    this.load = true;
                     elem.disabled = true;
                     axios
                         .post('http://127.0.0.1:8000/api/decisions', {name: elem.value})
