@@ -48,8 +48,8 @@ class BriefsController extends Controller
         $brief = new Brief();
         $values = $request->all([
             "name",
-            "email",
             "position_id",
+            "email",
             "level_id",
             "interview_date",
             "skills",

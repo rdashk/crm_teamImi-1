@@ -21,14 +21,16 @@ use Carbon\Carbon;
         {{Form::text("name", null, ["placeholder" => "ФИО", "class" => "form-control", "id"=>"name"])}}
 
     </div>
-    <div class="form-group">
-        <label for="email">E-mail</label>
-        {{Form::text("email", null, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email"])}}
-    </div>
+
     <div class="form-group">
         <label for="position_id">Позиция</label>
         {{Form::select("position_id", $positions, null, ["class" => "form-control", "id"=>"position_id"])}}
     </div>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        {{Form::text("email", null, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email"])}}
+    </div>
+
     <div class="form-group">
         <label for="level_id">Уровень</label>
         {{Form::select("level_id", $levels, null, ["class" => "form-control", "id"=>"level_id"])}}
@@ -63,11 +65,11 @@ use Carbon\Carbon;
     <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
     <script>
         $(document).on('change', '#name', createEmail);
+        $(document).on('change', '#position_id', createEmail);
         function createEmail(){
 
             var arr = $('#name').val().split(' ');
-            //console.log(translit(arr[0]) + "." + translit(arr[1]) + "-dev@adict.ru");
-            var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-dev@adict.ru";
+            var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-" + $('#position_id option:selected').text().substr(0,3) + "@adict.ru";
             $('#email').val(val_email);
         }
 
