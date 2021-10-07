@@ -1,8 +1,8 @@
 <template>
     <div class="d-flex flex-column container table-bordered col-12 pl-0 pr-0 text-center" id="table">
         <div class="d-flex flex-row container col-12 pl-0 pr-0 mt-1 mb-1 fw-bold">
-            <Column value="id" class="col-3 text-center pl-0 pr-0"></Column>
-            <Column value="name" class="col-9 text-center pl-0 pr-0"></Column>
+            <div class="col-3">id</div>
+            <div class="col-9">name</div>
         </div>
         <div v-for="$data in this.rows">
             <TableRow v-bind="$data" :resource="resource" v-on:reload="load">
@@ -11,7 +11,7 @@
     </div>
 </template>
 <script>
-import Column from "../dashboard/Column";
+import Column from "../tools/Column";
 import TableRow from "../tools/TableRow";
 export default {
     name: "ToolTable",
