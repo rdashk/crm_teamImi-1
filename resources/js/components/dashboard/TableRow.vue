@@ -100,7 +100,7 @@ export default {
         deleteItem(e){
             e.stopPropagation();
             axios
-                .delete('http://127.0.0.1:8000/api/briefs/'+this.id);
+                .delete(window.location.origin + '/api/briefs/'+this.id);
             this.$emit('reload');
         }
     }

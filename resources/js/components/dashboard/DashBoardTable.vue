@@ -26,7 +26,7 @@ export default {
     data() {
         return {
             rows: [],
-            request: 'http://127.0.0.1:8000/api/briefs',
+            request: window.location.origin + '/api/briefs',
             req: "",
             sorts: [],
             filters: [],

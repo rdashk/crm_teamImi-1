@@ -52,7 +52,7 @@ use App\Models\Decision;
                     this.load = true;
                     elem.disabled = true;
                     axios
-                        .post('http://127.0.0.1:8000/api/decisions', {name: elem.value})
+                        .post(window.location.origin + '/api/decisions', {name: elem.value})
                         .then(response => {
                             console.log(response.data);
                             this.load = false;

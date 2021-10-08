@@ -65,7 +65,7 @@ export default {
         deleteItem(e) {
             e.stopPropagation();
             axios
-                .delete('http://127.0.0.1:8000/api/'+this.resource + "/" + this.id);
+                .delete(window.location.origin + '/api/'+this.resource + "/" + this.id);
             this.$emit('reload');
         }
     }

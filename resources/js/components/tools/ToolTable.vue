@@ -31,7 +31,7 @@ export default {
     methods: {
         load(){
             axios
-                .get('http://127.0.0.1:8000/api/'+this.resource)
+                .get(window.location.origin + '/api/'+this.resource)
                 .then(response => (this.rows = response.data));
         },
     }

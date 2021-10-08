@@ -56,7 +56,7 @@ use App\Models\Level
                     this.load = true;
                     elem.disabled = true;
                     axios
-                        .post('http://127.0.0.1:8000/api/levels', {name: elem.value})
+                        .post(window.location.origin + '/api/levels', {name: elem.value})
                         .then(response => {
                             console.log(response.data);
                             this.load = false;

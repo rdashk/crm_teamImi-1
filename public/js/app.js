@@ -2188,7 +2188,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       rows: [],
-      request: 'http://127.0.0.1:8000/api/briefs',
+      request: window.location.origin + '/api/briefs',
       req: "",
       sorts: [],
       filters: []
@@ -2340,7 +2340,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteItem: function deleteItem(e) {
       e.stopPropagation();
-      axios["delete"]('http://127.0.0.1:8000/api/briefs/' + this.id);
+      axios["delete"](window.location.origin + '/api/briefs/' + this.id);
       this.$emit('reload');
     }
   }
@@ -2469,7 +2469,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteItem: function deleteItem(e) {
       e.stopPropagation();
-      axios["delete"]('http://127.0.0.1:8000/api/' + this.resource + "/" + this.id);
+      axios["delete"](window.location.origin + '/api/' + this.resource + "/" + this.id);
       this.$emit('reload');
     }
   }
@@ -2526,7 +2526,7 @@ __webpack_require__.r(__webpack_exports__);
     load: function load() {
       var _this = this;
 
-      axios.get('http://127.0.0.1:8000/api/' + this.resource).then(function (response) {
+      axios.get(window.location.origin + '/api/' + this.resource).then(function (response) {
         return _this.rows = response.data;
       });
     }
