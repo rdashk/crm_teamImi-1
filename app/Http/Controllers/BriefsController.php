@@ -119,7 +119,7 @@ class BriefsController extends Controller
     public function update(Request $request, Brief $brief)
     {
         $brief->update($request->all());
-        return redirect()->back();
+        return redirect("briefs/$brief->id");
     }
 
     /**
