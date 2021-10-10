@@ -2100,6 +2100,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
 //
 //
 //
@@ -2119,28 +2133,70 @@ __webpack_require__.r(__webpack_exports__);
     value: String,
     data: String,
     filter: Boolean,
-    filterArr: []
+    resource: String
+  },
+  created: function created() {
+    var _this = this;
+
+    if (this.resource !== "date" && this.resource) {
+      axios.get(window.location.origin + "/api/" + this.resource).then(function (response) {
+        return _this.filterOptions = response.data;
+      });
+    } else if (this.resource === "date") {
+      axios.get(window.location.origin + "/api/briefs?dates=1").then(function (response) {
+        _this.filterOptions = response.data;
+        _this.filterOptions = _toConsumableArray(new Set(_this.filterOptions));
+        console.log(_this.filterOptions);
+        _this.filterOptions = _this.filterOptions.map(function (el, index, arr) {
+          return {
+            id: el,
+            name: el
+          };
+        });
+        console.log(_this.filterOptions);
+      });
+    }
   },
   methods: {
     clickSort: function clickSort() {
       this.asc = !this.asc;
-      this.ascText = this.asc ? "Я-А" : "А-Я";
+      this.ascText = this.asc ? "DESC" : "ASC";
       this.$emit('changed', {
         'sorts': {
           'data': this.data,
           'name': (!this.asc ? "" : "-") + this.data
         }
       });
+      this.bgSorting = "bg-success";
     },
     deleteFromSort: function deleteFromSort() {
       this.$emit('del', this.data);
+      this.bgSorting = "";
+    },
+    filterData: function filterData(data) {
+      if (!this.filterArr.includes(data.id)) {
+        this.filterArr.push(data.id);
+      } else {
+        this.filterArr.splice(this.filterArr.indexOf(data.id), 1);
+      }
+
+      console.log(this.filterArr.includes(data));
+      this.$emit("changed", {
+        "filters": {
+          resource: this.data,
+          data: this.filterArr
+        }
+      });
     }
   },
   data: function data() {
     return {
       req: '',
-      ascText: "А-Я",
-      asc: true
+      ascText: "ASC",
+      asc: true,
+      bgSorting: "",
+      filterOptions: [],
+      filterArr: []
     };
   }
 });
@@ -2177,6 +2233,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2189,7 +2251,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       rows: [],
       request: window.location.origin + '/api/briefs',
-      req: "",
+      req: [],
       sorts: [],
       filters: []
     };
@@ -2205,26 +2267,52 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var req = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      this.req = req;
-      axios.get(this.request + req).then(function (response) {
+      console.log(this.request + "?" + req);
+      axios.get(this.request + "?" + req).then(function (response) {
         return _this.rows = response.data;
       });
     },
     changes: function changes(arr) {
+      var requ = [];
+
       if (arr.hasOwnProperty('sorts')) {
         this.sorts[arr['sorts']['data']] = arr['sorts']['name'];
         var req = Object.values(this.sorts).join();
-        this.load("?sorts=" + req);
+
+        if (req === "") {
+          this.req['sort'] = "";
+        } else {
+          this.req['sort'] = "sort=" + req;
+        }
       }
 
       if (arr.hasOwnProperty('filters')) {
-        console.log('filter');
+        if (!arr['filters']['data'].length) {
+          delete this.filters[arr['filters']['resource']];
+        } else {
+          this.filters[arr['filters']['resource']] = arr['filters']['data'];
+        }
+
+        var _req = [];
+
+        for (var filter in this.filters) {
+          _req.push(filter + ":" + this.filters[filter].join("|"));
+        }
+
+        if (_req.length) {
+          this.req['filter'] = "filter=" + _req.join();
+        } else {
+          this.req['filter'] = '';
+        }
       }
+
+      this.load(Object.values(this.req).join("&"));
     },
     deleteFromSort: function deleteFromSort(name) {
       delete this.sorts[name];
-      var req = Object.values(this.sorts).join();
-      if (this.sorts.length !== 0) this.load('?sorts=' + req);
+      var req = Object.values(this.req).join("&");
+      console.log(req);
+      this.load(req);
     }
   }
 });
@@ -39121,7 +39209,7 @@ var render = function() {
     _c(
       "a",
       {
-        staticClass: "btn btn-light dropdown-toggle pl-1 pr-1",
+        class: "btn btn-light dropdown-toggle pl-1 pr-1 " + this.bgSorting,
         attrs: {
           href: "#" + _vm.data,
           role: "button",
@@ -39158,26 +39246,27 @@ var render = function() {
           [_vm._v("СБРОСИТЬ СОРТИРОВКУ")]
         ),
         _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "dropdown-item",
-            attrs: { href: "#" },
-            on: {
-              click: function($event) {
-                return _vm.$emit("change", _vm.req)
-              }
-            }
-          },
-          [_vm._v("REFRESH")]
-        ),
-        _vm._v(" "),
-        _vm.filter
-          ? _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-              _vm._v("FILTER")
-            ])
-          : _vm._e()
-      ]
+        _vm._l(this.filterOptions, function(filterOpt) {
+          return _vm.filter
+            ? _c("div", { staticClass: "dropdown-item" }, [
+                _c("input", {
+                  attrs: { type: "checkbox", id: "filter" + filterOpt.id },
+                  domProps: { value: filterOpt.id },
+                  on: {
+                    click: function($event) {
+                      return _vm.filterData(filterOpt)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: filterOpt.id } }, [
+                  _vm._v(_vm._s(filterOpt.name))
+                ])
+              ])
+            : _vm._e()
+        })
+      ],
+      2
     )
   ])
 }
@@ -39236,28 +39325,48 @@ var render = function() {
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Позиция", data: "position", filter: true },
+            attrs: {
+              value: "Позиция",
+              data: "position_id",
+              filter: true,
+              resource: "positions"
+            },
             on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Уровень", data: "level", filter: true },
+            attrs: {
+              value: "Уровень",
+              data: "level_id",
+              filter: true,
+              resource: "levels"
+            },
             on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Дата", data: "date", filter: true },
+            attrs: {
+              value: "Дата",
+              data: "interview_date",
+              filter: true,
+              resource: "date"
+            },
             on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
               "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
-            attrs: { value: "Решение", data: "decision", filter: true },
+            attrs: {
+              value: "Решение",
+              data: "decision_id",
+              filter: true,
+              resource: "decisions"
+            },
             on: { changed: _vm.changes, del: _vm.deleteFromSort }
           })
         ],
