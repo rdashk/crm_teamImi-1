@@ -89,12 +89,19 @@ use App\Models\Brief;
             return answer;
         }
     </script>
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/js/froala_editor.pkgd.min.js'></script>
     <script>
-        var editors = document.getElementsByClassName('editor');
-        var editor = new MediumEditor(editors, {
-            toolbar: {
-                buttons: ['bold', 'italic', 'underline', 'anchor'],
-            }
+        var skills = new FroalaEditor('.editor', {
+            toolbarButtons: [['bold', 'italic', 'underline', 'insertLink', 'formatOL', 'formatUL', 'undo', 'redo']],
+            quickInsertTags: [],
+            attribution: false,
+            events: {
+                'contentChanged': function () {
+                    console.log(this.$oel[0].innerText = this.html.get());
+                }
+            },
+            pastePlain: true
         });
     </script>
 @endprepend
