@@ -8,7 +8,7 @@ use App\Models\Level;
 use App\Models\Position;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use VerumConsilium\Browsershot\PDF;
+use PDF;
 
 class BriefsController extends Controller
 {
@@ -87,11 +87,8 @@ class BriefsController extends Controller
      */
     public function show(Brief $brief): Response
     {
-        /* скачивание pdf
-        return (new PDF)->loadView('briefs.show', compact('brief'))
-            ->margins(20, 0, 0, 20)
-            ->download();*/
-        return new Response(view("briefs.show")->with("brief", $brief));
+        return $this->download($brief);
+        //return new Response(view("briefs.show")->with("brief", $brief));
     }
 
     /**
@@ -132,5 +129,15 @@ class BriefsController extends Controller
     {
         $brief->delete();
         return new Response(redirect("briefs"));
+    }
+
+    public function download(Brief $brief)
+    {
+        // скачивание pdf
+        //$pdf = PDF::loadHTML('<h1>Test</h1>');
+        //dd(compact('brief'));
+           $pdf = PDF::loadView('briefs.topdf', compact('brief'));
+        return $pdf->inline('cv.pdf');
+        //return $pdf->download('cv.pdf');
     }
 }
