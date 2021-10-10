@@ -87,8 +87,8 @@ class BriefsController extends Controller
      */
     public function show(Brief $brief): Response
     {
-        return $this->download($brief);
-        //return new Response(view("briefs.show")->with("brief", $brief));
+        //return $this->download($brief);
+        return new Response(view("briefs.show")->with("brief", $brief));
     }
 
     /**

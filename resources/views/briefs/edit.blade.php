@@ -23,7 +23,7 @@ use App\Models\Brief;
         {{Form::select("position_id", $positions, $brief->position_id, ["class" => "form-control", "id"=>"position_id"])}}
 
         <label for="email">E-mail</label>
-        {{Form::text("email", $brief->email, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email"])}}
+        {{Form::text("email", $brief->email, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email", "readonly"])}}
 
         <label for="level_id">Уровень</label>
         {{Form::select("level_id", $levels , $brief->level_id, ["class" => "form-control", "id"=>"level_id"])}}
