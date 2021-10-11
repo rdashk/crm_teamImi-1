@@ -17,13 +17,13 @@ class CreateBriefsTable extends Migration
             $table->id();
             $table->string("name", 255);
             $table->string("email", 255);
-            $table->foreignId("position_id")->references("id")->on("positions");
-            $table->foreignId("level_id")->references("id")->on("levels");
+            $table->foreignId("position_id")->references("id")->on("positions")->onDelete("cascade");
+            $table->foreignId("level_id")->references("id")->on("levels")->onDelete("cascade");
             $table->date("interview_date")->nullable();
             $table->text("skills");
             $table->text("text");
             $table->text("experience");
-            $table->foreignId("decision_id")->references("id")->on("decisions");
+            $table->foreignId("decision_id")->references("id")->on("decisions")->onDelete("cascade");
             $table->timestamps();
         });
     }
