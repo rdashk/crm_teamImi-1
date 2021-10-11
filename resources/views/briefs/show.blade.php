@@ -104,13 +104,11 @@ use App\Models\Brief;
     </div>
     <div class="container">
         <div class="row">
-            <a type="button" class="btn btn-outline-dark col-auto" href="./{{$brief->id}}/edit">Редактировать</a>
+            <a type="button" class="btn btn-outline-dark col-auto mr-2" href="./{{$brief->id}}/edit">Редактировать</a>
 
-            {{--Form::open([[App\Http\Controllers\BriefsController::class, 'download'], $brief->id])}}
-            {{Form::button("Скачать")}}
-            {{Form::close()--}}
+            <a type="button" class="btn btn-outline-dark col-auto mr-2" href="{{route("pdf", $brief)}}">PDF</a>
 
-            {{Form::open(["action" => ['App\Http\Controllers\BriefsController@destroy', $brief->id], "method" => "DELETE", "class"=>"col-2"])}}
+            {{Form::open(["action" => ['App\Http\Controllers\BriefsController@destroy', $brief->id], "method" => "DELETE", "class"=>"col-2 pl-0"])}}
             {{Form::submit("Удалить", ["class" => "btn btn-outline-danger"])}}
             {{Form::close()}}
         </div>

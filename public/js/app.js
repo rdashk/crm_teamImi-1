@@ -39686,14 +39686,10 @@ var render = function() {
               ),
               _vm._v(" "),
               _c(
-                "button",
+                "a",
                 {
                   staticClass: "btn btn-outline-info pl-2 pr-2 pt-2 pb-2",
-                  on: {
-                    click: function($event) {
-                      return _vm.$emit("pdf-brief")
-                    }
-                  }
+                  attrs: { href: "/briefs/" + _vm.id + "/pdf" }
                 },
                 [
                   _c(

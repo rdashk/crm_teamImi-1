@@ -26,3 +26,4 @@ Route::resources([
     "decisions" => DecisionsController::class,
     "positions" => PositionsController::class
 ]);
+Route::get("/briefs/{brief}/pdf", [BriefsController::class, "download"]);
