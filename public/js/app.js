@@ -2143,17 +2143,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         return _this.filterOptions = response.data;
       });
     } else if (this.resource === "date") {
-      axios.get(window.location.origin + "/api/briefs?dates=1").then(function (response) {
+      axios.get(window.location.origin + "/api/briefs-dates").then(function (response) {
         _this.filterOptions = response.data;
         _this.filterOptions = _toConsumableArray(new Set(_this.filterOptions));
-        console.log(_this.filterOptions);
         _this.filterOptions = _this.filterOptions.map(function (el, index, arr) {
           return {
             id: el,
-            name: el
+            name: el ? el : "Не указана"
           };
         });
-        console.log(_this.filterOptions);
       });
     }
   },
@@ -2180,7 +2178,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         this.filterArr.splice(this.filterArr.indexOf(data.id), 1);
       }
 
-      console.log(this.filterArr.includes(data));
       this.$emit("changed", {
         "filters": {
           resource: this.data,

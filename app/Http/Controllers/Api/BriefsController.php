@@ -44,10 +44,6 @@ class BriefsController extends Controller
             return $query;
         });
 
-        if (request()->filled("dates")) {
-            return $query->pluck("interview_date");
-        }
-
         return $query->with("level", "position", "decision")->get();
     }
 
@@ -97,5 +93,10 @@ class BriefsController extends Controller
     {
         $brief = Brief::findOrFail($id)->delete();
         return $brief;
+    }
+
+    public function dates(){
+        $briefs = Brief::pluck('interview_date');
+        return $briefs;
     }
 }

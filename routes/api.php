@@ -27,3 +27,5 @@ Route::apiResources(
         "positions" => \App\Http\Controllers\Api\PositionsController::class
     ]
 );
+
+Route::get('briefs-dates', [\App\Http\Controllers\Api\BriefsController::class, "dates"]);

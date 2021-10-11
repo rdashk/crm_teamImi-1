@@ -30,15 +30,13 @@ export default {
         }
         else if (this.resource === "date"){
             axios
-                .get(window.location.origin + "/api/briefs?dates=1")
+                .get(window.location.origin + "/api/briefs-dates")
                 .then(response => {
                     this.filterOptions = response.data;
                     this.filterOptions = [...new Set(this.filterOptions)]
-                    console.log(this.filterOptions);
                     this.filterOptions = this.filterOptions.map(function(el, index, arr){
-                        return {id: el, name: el};
+                        return {id: el, name: ( el ? el : "Не указана")};
                     })
-                    console.log(this.filterOptions);
                 });
         }
     },
@@ -59,7 +57,6 @@ export default {
             } else {
                 this.filterArr.splice(this.filterArr.indexOf(data.id), 1);
             }
-            console.log(this.filterArr.includes(data));
             this.$emit("changed", {"filters": {resource: this.data, data: this.filterArr}})
         }
     },
