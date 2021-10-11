@@ -4,6 +4,7 @@ use App\Http\Controllers\BriefsController;
 use App\Http\Controllers\DecisionsController;
 use App\Http\Controllers\LevelsController;
 use App\Http\Controllers\PositionsController;
+use App\Models\Brief;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,12 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get("/", function(){
     return redirect('briefs');
+});
+
+Route::get("/briefs/{brief}/topdf", function (Brief $brief){
+    $pdf = PDF::loadView('briefs.topdf', compact('brief'));
+    //return $pdf->inline('cv.pdf');
+    return $pdf->download('cv.pdf');
 });
 
 Route::resources([

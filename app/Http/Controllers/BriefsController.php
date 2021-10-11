@@ -130,14 +130,4 @@ class BriefsController extends Controller
         $brief->delete();
         return new Response(redirect("briefs"));
     }
-
-    public function download(Brief $brief)
-    {
-        // скачивание pdf
-        //$pdf = PDF::loadHTML('<h1>Test</h1>');
-        //dd(compact('brief'));
-           $pdf = PDF::loadView('briefs.topdf', compact('brief'));
-        return $pdf->inline('cv.pdf');
-        //return $pdf->download('cv.pdf');
-    }
 }
