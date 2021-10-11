@@ -5,20 +5,23 @@
             <div class="col-9">name</div>
         </div>
         <div v-for="$data in this.rows">
-            <TableRow v-bind="$data" :resource="resource" v-on:reload="load">
+            <TableRow v-bind="$data" :resource="resource" v-on:reload="load" v-on:deleteById="deleteById" @click="deleteById({id: $data.id, resource: $data.resource})">
             </TableRow>
         </div>
+        <DeleteModal v-on:deleteFK="deleteFK"></DeleteModal>
     </div>
 </template>
 <script>
 import Column from "../tools/Column";
 import TableRow from "../tools/TableRow";
+import DeleteModal from "./DeleteModal";
 export default {
     name: "ToolTable",
-    components: {TableRow, Column},
+    components: {DeleteModal, TableRow, Column},
     data() {
         return {
             rows: [],
+            deletingItem: null,
         };
     },
     props: {
@@ -34,6 +37,18 @@ export default {
                 .get(window.location.origin + '/api/'+this.resource)
                 .then(response => (this.rows = response.data));
         },
+        deleteById(arg){
+            this.deletingItem = arg;
+        },
+        deleteFK(){
+            if (this.deletingItem === null) throw new DOMException("Не удалось получить данные удаляемого элемента")
+            else {
+                axios
+                    .delete(window.location.origin + '/api/'+this.deletingItem.resource + "/" + this.deletingItem.id);
+                this.deletingItem = null;
+                this.load();
+            }
+        }
     }
 }
 </script>
