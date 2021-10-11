@@ -14,7 +14,7 @@ class DecisionsController extends Controller
      */
     public function index()
     {
-        return Decision::all();
+        return Decision::query()->orderBy("id")->get();
     }
 
     /**

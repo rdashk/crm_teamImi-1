@@ -15,7 +15,7 @@ class PositionsController extends Controller
      */
     public function index()
     {
-        return Position::all();
+        return Position::query()->orderBy("id")->get();
     }
 
     /**

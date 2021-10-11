@@ -14,7 +14,7 @@ class LevelsController extends Controller
      */
     public function index()
     {
-        return Level::all();
+        return Level::query()->orderBy("id")->get();
     }
 
     /**
