@@ -133,11 +133,8 @@ class BriefsController extends Controller
 
     public function download(Brief $brief)
     {
-        // скачивание pdf
-        //$pdf = PDF::loadHTML('<h1>Test</h1>');
-        //dd(compact('brief'));
         $name = str_replace(" ", "_", $brief->name) . "_" . strtoupper($brief->position->name);
         $pdf = PDF::loadView('briefs.topdf', compact('brief'));
-        return $pdf->inline("$name.pdf");
+        return $pdf->download("$name.pdf");
     }
 }

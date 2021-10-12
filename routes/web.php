@@ -21,12 +21,6 @@ Route::get("/", function(){
     return redirect('briefs');
 });
 
-Route::get("/briefs/{brief}/topdf", function (Brief $brief){
-    $pdf = PDF::loadView('briefs.topdf', compact('brief'));
-    //return $pdf->inline('cv.pdf');
-    return $pdf->download('cv.pdf');
-});
-
 Route::resources([
     "briefs" => BriefsController::class,
     "levels" => LevelsController::class,
