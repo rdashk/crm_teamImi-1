@@ -13,32 +13,35 @@ use App\Models\Brief;
  */
 ?>
 @section("content")
-    {{Form::open(["action" => ['App\Http\Controllers\BriefsController@update', $brief->id], "method" => "PATCH", "class" => "container"])}}
+    {{Form::open(["action" => ['App\Http\Controllers\BriefsController@update', $brief->id], "method" => "PATCH", "class" => "container col-md-9 col-12"])}}
     @csrf
-    <div class="form-group">
-
-        <label for="name">ФИО</label>
-        {{Form::text("name", $brief->name, ["placeholder" => "Имя", "class" => "form-control", "id"=>"name"])}}
-    </div>
-    <div class="form-group">
-        <label for="position_id">Позиция</label>
-        {{Form::select("position_id", $positions, $brief->position_id, ["class" => "form-control", "id"=>"position_id"])}}
+    <div class="row">
+        <div class="form-group col-9">
+            <label for="name">ФИО</label>
+            {{Form::text("name", $brief->name, ["placeholder" => "Имя", "class" => "form-control", "id"=>"name"])}}
+        </div>
+        <div class="form-group col-3">
+            <label for="position_id">Позиция</label>
+            {{Form::select("position_id", $positions, $brief->position_id, ["class" => "form-control", "id"=>"position_id"])}}
+        </div>
     </div>
     <div class="form-group">
         <label for="email">E-mail</label>
-        {{Form::text("email", $brief->email, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email", "readonly"])}}
+        {{Form::text("email", $brief->email, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email"])}}
     </div>
-    <div class="form-group">
-        <label for="level_id">Уровень</label>
-        {{Form::select("level_id", $levels , $brief->level_id, ["class" => "form-control", "id"=>"level_id"])}}
-    </div>
-    <div class="form-group">
-        <label for="decision_id">Решение</label>
-        {{Form::select("decision_id", $decisions, $brief->decision_id, ["class" => "form-control", "id"=>"decision_id"])}}
-    </div>
-    <div class="form-group">
-        <label for="interview_date">Дата собеседования</label>
-        {{Form::date("interview_date", $brief->interview_date, ["class" => "form-control", "id"=>"interview_date"])}}
+    <div class="row">
+        <div class="form-group col-3">
+            <label for="level_id">Уровень</label>
+            {{Form::select("level_id", $levels , $brief->level_id, ["class" => "form-control", "id"=>"level_id"])}}
+        </div>
+        <div class="form-group col-5">
+            <label for="decision_id">Решение</label>
+            {{Form::select("decision_id", $decisions, $brief->decision_id, ["class" => "form-control", "id"=>"decision_id"])}}
+        </div>
+        <div class="form-group col-4">
+            <label for="interview_date">Дата собеседования</label>
+            {{Form::date("interview_date", $brief->interview_date, ["class" => "form-control", "id"=>"interview_date"])}}
+        </div>
     </div>
     <div class="form-group">
         <label for="skills">Ключевые навыки</label>
@@ -73,10 +76,11 @@ use App\Models\Brief;
     <script>
         $(document).on('change', '#name', createEmail);
         $(document).on('change', '#position_id', createEmail);
-        function createEmail(){
+
+        function createEmail() {
 
             var arr = $('#name').val().split(' ');
-            var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-" + $('#position_id option:selected').text().substr(0,3) + "@adict.ru";
+            var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-" + $('#position_id option:selected').text().substr(0, 3) + "@adict.ru";
             $('#email').val(val_email);
         }
 
@@ -118,38 +122,38 @@ use App\Models\Brief;
         var skills = new Quill("#quill-skills", {
             theme: 'snow',
             modules: {
-                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{'list': 'ordered'}, {'list': 'bullet'}]]
             },
             placeholder: "Ключевые навыки",
         });
         var exp = new Quill("#quill-exp", {
             theme: 'snow',
             modules: {
-                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{'list': 'ordered'}, {'list': 'bullet'}]]
             },
             placeholder: "Опыт работы",
         });
         var text = new Quill("#quill-text", {
             theme: 'snow',
             modules: {
-                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{'list': 'ordered'}, {'list': 'bullet'}]]
             },
             placeholder: "Резюме",
         })
 
-        skills.on('text-change', function(){
+        skills.on('text-change', function () {
             skillsTA.innerHTML = skills.root.innerHTML;
         });
-        exp.on('text-change', function(){
+        exp.on('text-change', function () {
             expTA.innerHTML = exp.root.innerHTML;
         });
-        text.on('text-change', function(){
+        text.on('text-change', function () {
             textTA.innerHTML = text.root.innerHTML;
         });
     </script>
     <style>
-        .ql-editor{
-            min-height: 250px!important;
+        .ql-editor {
+            min-height: 250px !important;
         }
     </style>
 @endprepend
