@@ -5,7 +5,7 @@
 @endsection
 <?php
 use App\Http\Controllers\BriefsController;
-use App\Models\Decision;
+use App\Models\Brief;use App\Models\Decision;
 use App\Models\Level;
 use App\Models\Position;
 use Carbon\Carbon;
@@ -71,8 +71,18 @@ use Carbon\Carbon;
         $(document).on('change', '#position_id', createEmail);
         function createEmail(){
 
+            var all_email = '<?php echo Brief::pluck("email");?>';
+            console.log(all_email);
+
             var arr = $('#name').val().split(' ');
-            var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-" + $('#position_id option:selected').text().substr(0,3) + "@adict.ru";
+            var name_for_email = translit(arr[0]) + "." + translit(arr[1]);
+            var pos = "-" + $('#position_id option:selected').text().substr(0,3) + "@adict.ru";
+
+            while (all_email.indexOf(name_for_email+pos) !== -1) {
+                name_for_email += Math.round(Math.random()*10);
+            }
+            var val_email = name_for_email + pos;
+
             $('#email').val(val_email);
         }
 
@@ -91,7 +101,7 @@ use Carbon\Carbon;
 
             var answer = '';
             for (var i = 0; i < word.length; ++i) {
-                if (converter[word[i]] == undefined) {
+                if (converter[word[i]] === undefined) {
                     answer += word[i];
                 } else {
                     answer += converter[word[i]];

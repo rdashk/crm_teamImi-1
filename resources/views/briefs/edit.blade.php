@@ -76,11 +76,20 @@ use App\Models\Brief;
     <script>
         $(document).on('change', '#name', createEmail);
         $(document).on('change', '#position_id', createEmail);
+        function createEmail(){
 
-        function createEmail() {
+            var all_email = '<?php echo Brief::pluck("email");?>';
+            console.log(all_email);
 
             var arr = $('#name').val().split(' ');
-            var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-" + $('#position_id option:selected').text().substr(0, 3) + "@adict.ru";
+            var name_for_email = translit(arr[0]) + "." + translit(arr[1]);
+            var pos = "-" + $('#position_id option:selected').text().substr(0,3) + "@adict.ru";
+
+            while (all_email.indexOf(name_for_email+pos) !== -1) {
+                name_for_email += Math.round(Math.random()*10);
+            }
+            var val_email = name_for_email + pos;
+
             $('#email').val(val_email);
         }
 
@@ -122,38 +131,38 @@ use App\Models\Brief;
         var skills = new Quill("#quill-skills", {
             theme: 'snow',
             modules: {
-                toolbar: [['bold', 'italic', 'underline', 'link'], [{'list': 'ordered'}, {'list': 'bullet'}]]
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
             },
             placeholder: "Ключевые навыки",
         });
         var exp = new Quill("#quill-exp", {
             theme: 'snow',
             modules: {
-                toolbar: [['bold', 'italic', 'underline', 'link'], [{'list': 'ordered'}, {'list': 'bullet'}]]
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
             },
             placeholder: "Опыт работы",
         });
         var text = new Quill("#quill-text", {
             theme: 'snow',
             modules: {
-                toolbar: [['bold', 'italic', 'underline', 'link'], [{'list': 'ordered'}, {'list': 'bullet'}]]
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
             },
             placeholder: "Резюме",
         })
 
-        skills.on('text-change', function () {
+        skills.on('text-change', function(){
             skillsTA.innerHTML = skills.root.innerHTML;
         });
-        exp.on('text-change', function () {
+        exp.on('text-change', function(){
             expTA.innerHTML = exp.root.innerHTML;
         });
-        text.on('text-change', function () {
+        text.on('text-change', function(){
             textTA.innerHTML = text.root.innerHTML;
         });
     </script>
     <style>
-        .ql-editor {
-            min-height: 250px !important;
+        .ql-editor{
+            min-height: 250px!important;
         }
     </style>
 @endprepend
