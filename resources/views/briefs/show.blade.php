@@ -71,22 +71,6 @@ use App\Models\Brief;
         </div>
         <div class="row border-bottom">
             <div class="col-4 h4 border-right mb-0 pb-2">
-                Резюме
-            </div>
-            <div class="col-8" data-toggle="collapse"
-                 data-target="#text" aria-expanded="false" aria-controls="collapseExample">
-                <div class="text-truncate" style="max-height: 5em;">
-                    <?= ($brief->text) ?>
-                </div>
-                <div class="collapse" id="text">
-                    <div class="card card-body container">
-                        <?= $brief->text ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4 h4 border-right mb-0 pb-2">
                 Опыт
             </div>
             <div class="col-8" data-toggle="collapse"
@@ -97,6 +81,22 @@ use App\Models\Brief;
                 <div class="collapse" id="exp">
                     <div class="card card-body container">
                         <?= $brief->experience ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 h4 border-right mb-0 pb-2">
+                Резюме
+            </div>
+            <div class="col-8" data-toggle="collapse"
+                 data-target="#text" aria-expanded="false" aria-controls="collapseExample">
+                <div class="text-truncate" style="max-height: 5em;">
+                    <?= ($brief->text) ?>
+                </div>
+                <div class="collapse" id="text">
+                    <div class="card card-body container">
+                        <?= $brief->text ?>
                     </div>
                 </div>
             </div>

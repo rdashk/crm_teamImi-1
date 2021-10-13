@@ -16,33 +16,52 @@ use App\Models\Brief;
     {{Form::open(["action" => ['App\Http\Controllers\BriefsController@update', $brief->id], "method" => "PATCH", "class" => "container"])}}
     @csrf
     <div class="form-group">
-        <label for="name">Имя</label>
-        {{Form::text("name", $brief->name, ["placeholder" => "Имя", "class" => "form-control", "id"=>"name"])}}
 
+        <label for="name">ФИО</label>
+        {{Form::text("name", $brief->name, ["placeholder" => "Имя", "class" => "form-control", "id"=>"name"])}}
+    </div>
+    <div class="form-group">
         <label for="position_id">Позиция</label>
         {{Form::select("position_id", $positions, $brief->position_id, ["class" => "form-control", "id"=>"position_id"])}}
-
+    </div>
+    <div class="form-group">
         <label for="email">E-mail</label>
         {{Form::text("email", $brief->email, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email", "readonly"])}}
-
+    </div>
+    <div class="form-group">
         <label for="level_id">Уровень</label>
         {{Form::select("level_id", $levels , $brief->level_id, ["class" => "form-control", "id"=>"level_id"])}}
-
+    </div>
+    <div class="form-group">
         <label for="decision_id">Решение</label>
         {{Form::select("decision_id", $decisions, $brief->decision_id, ["class" => "form-control", "id"=>"decision_id"])}}
-
+    </div>
+    <div class="form-group">
         <label for="interview_date">Дата собеседования</label>
         {{Form::date("interview_date", $brief->interview_date, ["class" => "form-control", "id"=>"interview_date"])}}
-
+    </div>
+    <div class="form-group">
         <label for="skills">Ключевые навыки</label>
-        {{Form::textarea("skills", $brief->skills, ["placeholder" => "Ключевые навыки", "class" => "form-control editor", "id"=>"skills"])}}
-
+        {{Form::textarea("skills", $brief->skills, ["placeholder" => "Ключевые навыки", "class" => "form-control editor", "id"=>"skills", "style"=>"display: none"])}}
+        <div id="quill-skills">
+            <?=$brief->skills?>
+        </div>
+    </div>
+    <div class="form-group">
         <label for="experience">Опыт работы</label>
-        {{Form::textarea("experience", $brief->experience, ["placeholder" => "Опыт работы", "class" => "form-control editor", "id"=>"experience"])}}
-
+        {{Form::textarea("experience", $brief->experience, ["placeholder" => "Опыт работы", "class" => "form-control editor", "id"=>"experience", "style"=>"display: none"])}}
+        <div id="quill-exp">
+            <?=$brief->experience?>
+        </div>
+    </div>
+    <div class="form-group">
         <label for="text">Резюме</label>
-        {{Form::textarea("text", $brief->text, ["placeholder" => "Резюме", "class" => "form-control editor", "id"=>"text"])}}
-
+        {{Form::textarea("text", $brief->text, ["placeholder" => "Резюме", "class" => "form-control editor", "id"=>"text", "style"=>"display: none"])}}
+        <div id="quill-text">
+            <?=$brief->text?>
+        </div>
+    </div>
+    <div class="form-group">
         {{Form::submit("Отправить", ["class" => "btn form-control btn-outline-dark"])}}
         <div id="editor"></div>
     </div>
@@ -89,20 +108,49 @@ use App\Models\Brief;
             return answer;
         }
     </script>
-    <link href='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/js/froala_editor.pkgd.min.js'></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
-        var skills = new FroalaEditor('.editor', {
-            toolbarButtons: [['bold', 'italic', 'underline', 'insertLink', 'formatOL', 'formatUL', 'undo', 'redo']],
-            quickInsertTags: [],
-            attribution: false,
-            events: {
-                'contentChanged': function () {
-                    console.log(this.$oel[0].innerText = this.html.get());
-                }
+        var skillsTA = document.getElementById("skills");
+        var expTA = document.getElementById("experience");
+        var textTA = document.getElementById("text");
+
+        var skills = new Quill("#quill-skills", {
+            theme: 'snow',
+            modules: {
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
             },
-            pastePlain: true
+            placeholder: "Ключевые навыки",
+        });
+        var exp = new Quill("#quill-exp", {
+            theme: 'snow',
+            modules: {
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
+            },
+            placeholder: "Опыт работы",
+        });
+        var text = new Quill("#quill-text", {
+            theme: 'snow',
+            modules: {
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
+            },
+            placeholder: "Резюме",
+        })
+
+        skills.on('text-change', function(){
+            skillsTA.innerHTML = skills.root.innerHTML;
+        });
+        exp.on('text-change', function(){
+            expTA.innerHTML = exp.root.innerHTML;
+        });
+        text.on('text-change', function(){
+            textTA.innerHTML = text.root.innerHTML;
         });
     </script>
+    <style>
+        .ql-editor{
+            min-height: 250px!important;
+        }
+    </style>
 @endprepend
 

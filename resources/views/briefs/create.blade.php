@@ -45,19 +45,23 @@ use Carbon\Carbon;
     </div>
     <div class="form-group">
         <label for="skills">Ключевые навыки</label>
-        {{Form::textarea("skills", null, ["placeholder" => "Ключевые навыки", "class" => "form-control editor", "id"=>"skills"])}}
+        {{Form::textarea("skills", null, ["placeholder" => "Ключевые навыки", "class" => "form-control", "id"=>"skills", "style"=>"display: none"])}}
+        <div id="quill-skills"></div>
     </div>
-    <div class="form-group">
+    <div class="form-group editor">
         <label for="experience">Опыт работы</label>
-        {{Form::textarea("experience", null, ["placeholder" => "Опыт работы", "class" => "form-control editor", "id"=>"experience"])}}
+        {{Form::textarea("experience", null, ["placeholder" => "Опыт работы", "class" => "form-control", "id"=>"experience", "style"=>"display: none"])}}
+        <div id="quill-exp"></div>
     </div>
-    <div class="form-group">
+    <div class="form-group editor">
         <label for="text">Резюме</label>
-        {{Form::textarea("text", null, ["placeholder" => "Резюме", "class" => "form-control editor", "id"=>"text"])}}
+        {{Form::textarea("text", null, ["placeholder" => "Резюме", "class" => "form-control", "id"=>"text", "style"=>"display: none"])}}
+        <div id="quill-text"></div>
     </div>
     <div class="form-group">
         {{Form::submit("Отправить", ["class" => "btn bth-submit form-control btn-outline-dark", "id" => "submit"])}}
     </div>
+    <div id="editor"></div>
     {{Form::close()}}
 @endsection
 
@@ -100,19 +104,48 @@ use Carbon\Carbon;
             return answer;
         }
     </script>
-    <link href='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
-    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@4.0.1/js/froala_editor.pkgd.min.js'></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
-        var skills = new FroalaEditor('.editor', {
-            toolbarButtons: [['bold', 'italic', 'underline', 'insertLink', 'formatOL', 'formatUL', 'undo', 'redo']],
-            quickInsertTags: [],
-            attribution: false,
-            events: {
-                'contentChanged': function () {
-                    console.log(this.$oel[0].innerText = this.html.get());
-                }
+        var skillsTA = document.getElementById("skills");
+        var expTA = document.getElementById("experience");
+        var textTA = document.getElementById("text");
+
+        var skills = new Quill("#quill-skills", {
+            theme: 'snow',
+            modules: {
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
             },
-            pastePlain: true
+            placeholder: "Ключевые навыки",
+        });
+        var exp = new Quill("#quill-exp", {
+            theme: 'snow',
+            modules: {
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
+            },
+            placeholder: "Опыт работы",
+        });
+        var text = new Quill("#quill-text", {
+            theme: 'snow',
+            modules: {
+                toolbar: [['bold', 'italic', 'underline', 'link'], [{ 'list': 'ordered'}, { 'list': 'bullet' }]]
+            },
+            placeholder: "Резюме",
+        })
+
+        skills.on('text-change', function(){
+            skillsTA.innerHTML = skills.root.innerHTML;
+        });
+        exp.on('text-change', function(){
+            expTA.innerHTML = exp.root.innerHTML;
+        });
+        text.on('text-change', function(){
+            textTA.innerHTML = text.root.innerHTML;
         });
     </script>
+    <style>
+        .ql-editor{
+            min-height: 250px!important;
+        }
+    </style>
 @endprepend
