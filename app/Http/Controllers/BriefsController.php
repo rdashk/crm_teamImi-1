@@ -57,21 +57,25 @@ class BriefsController extends Controller
         ]);
         $brief->fill($values);
         $request->validate([
-            'name' => 'bail|required',
+            'name' => 'bail|required|max:255',
             'position_id' => 'bail|required',
+            'email' => 'bail|required|email:filter|max:255|unique:briefs',
             'level_id' => 'bail|required',
             'skills' => 'bail|required',
             'text' => 'bail|required',
             'experience' => 'bail|required',
             'decision_id' => 'bail|required',
         ], [
-            'name.required' => 'ФИО',
-            'position_id.required' => 'позиция',
-            'level_id.required' => 'уровень',
-            'skills.required' => 'навыки',
-            'experience.required' => 'опыт',
-            'decision_id.required' => 'решение',
-            'text.required' => 'резюме',
+            'name.required' => 'Заполните ФИО',
+            'position_id.required' => 'Заполните поле позиция',
+            'level_id.required' => 'Заполните поле уровень',
+            'skills.required' => 'Заполните поле навыки',
+            'experience.required' => 'Заполните поле опыт',
+            'decision_id.required' => 'Заполните поле решение',
+            'text.required' => 'Заполните поле резюме',
+
+            'email.unique' => 'Кандидат с таким именем уже существует! Введите другой email',
+            'email.email' => 'Введите корректный email'
         ]);
         $brief->save();
 
@@ -115,6 +119,27 @@ class BriefsController extends Controller
      */
     public function update(Request $request, Brief $brief)
     {
+        $request->validate([
+            'name' => 'bail|required|max:255',
+            'position_id' => 'bail|required',
+            'email' => 'bail|required|email:filter|max:255|unique:briefs',
+            'level_id' => 'bail|required',
+            'skills' => 'bail|required',
+            'text' => 'bail|required',
+            'experience' => 'bail|required',
+            'decision_id' => 'bail|required',
+        ], [
+            'name.required' => 'ФИО не может быть пустым',
+            'position_id.required' => 'Позиция не может быть пустой',
+            'level_id.required' => 'Уровень не может быть пустым',
+            'skills.required' => 'Навыки не может быть пустым',
+            'experience.required' => 'Опыт не может быть пустым',
+            'decision_id.required' => 'Решение не может быть пустым',
+            'text.required' => 'Резюме не может быть пустым',
+
+            'email.unique' => 'Кандидат с таким именем уже существует! Введите другой email',
+            'email.email' => 'Введите корректный email'
+        ]);
         $brief->update($request->all());
         return redirect("briefs/$brief->id");
     }

@@ -1,7 +1,6 @@
 @if ($errors->any())
     <!-- Form Error List -->
     <div class="alert alert-danger">
-        <strong>Есть пустые поля!</strong>
 
         <br><br>
 
