@@ -26,7 +26,7 @@ use App\Models\Brief;
     </div>
     <div class="form-group">
         <label for="email">E-mail</label>
-        {{Form::text("email", $brief->email, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email", "readonly"])}}
+        {{Form::text("email", $brief->email, ["placeholder" => "E-mail", "class" => "form-control", "id"=>"email"])}}
     </div>
     <div class="form-group">
         <label for="level_id">Уровень</label>
@@ -75,8 +75,18 @@ use App\Models\Brief;
         $(document).on('change', '#position_id', createEmail);
         function createEmail(){
 
+            var all_email = '<?php echo Brief::pluck("email");?>';
+            console.log(all_email);
+
             var arr = $('#name').val().split(' ');
-            var val_email = translit(arr[0]) + "." + translit(arr[1]) + "-" + $('#position_id option:selected').text().substr(0,3) + "@adict.ru";
+            var name_for_email = translit(arr[0]) + "." + translit(arr[1]);
+            var pos = "-" + $('#position_id option:selected').text().substr(0,3) + "@adict.ru";
+
+            while (all_email.indexOf(name_for_email+pos) !== -1) {
+                name_for_email += Math.round(Math.random()*10);
+            }
+            var val_email = name_for_email + pos;
+
             $('#email').val(val_email);
         }
 
@@ -95,7 +105,7 @@ use App\Models\Brief;
 
             var answer = '';
             for (var i = 0; i < word.length; ++i) {
-                if (converter[word[i]] == undefined) {
+                if (converter[word[i]] === undefined) {
                     answer += word[i];
                 } else {
                     answer += converter[word[i]];
