@@ -17,6 +17,8 @@ use App\Models\Brief;
     @csrf
     <div class="form-group">
 
+        @include('errors')
+
         <label for="name">ФИО</label>
         {{Form::text("name", $brief->name, ["placeholder" => "Имя", "class" => "form-control", "id"=>"name"])}}
     </div>
