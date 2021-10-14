@@ -19,7 +19,7 @@ use App\Models\Brief;
     }
     .all {
         text-align: left;
-        margin: 40pt;
+        padding: 40pt;
     }
     .email {
         color: blue;
