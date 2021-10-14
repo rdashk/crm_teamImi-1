@@ -61,9 +61,9 @@ class BriefsController extends Controller
             'position_id' => 'bail|required',
             'email' => 'bail|required|email:filter|max:255|unique:briefs',
             'level_id' => 'bail|required',
-            'skills' => 'bail|required',
-            'text' => 'bail|required',
-            'experience' => 'bail|required',
+            'skills' => 'bail|required|max:2000',
+            'text' => 'bail|required|max:8000',
+            'experience' => 'bail|required|max:10000',
             'decision_id' => 'bail|required',
         ], [
             'name.required' => 'Заполните ФИО',
@@ -75,7 +75,11 @@ class BriefsController extends Controller
             'text.required' => 'Заполните поле резюме',
 
             'email.unique' => 'Кандидат с таким именем уже существует! Введите другой email',
-            'email.email' => 'Введите корректный email'
+            'email.email' => 'Введите корректный email',
+            'email.max' => 'Кол-во символов в EMAIL не более 255',
+            'skills.max' => 'Кол-во символов в КЛЮЧЕВЫХ НАВЫКАХ не более 2000',
+            'text.max' => 'Кол-во символов в РЕЗЮМЕ не более 8000',
+            'experience.max' => 'Кол-во символов в ОПЫТЕ не более 10000',
         ]);
         $brief->save();
 
@@ -124,21 +128,25 @@ class BriefsController extends Controller
             'position_id' => 'bail|required',
             'email' => 'bail|required|email:filter|max:255|unique:briefs',
             'level_id' => 'bail|required',
-            'skills' => 'bail|required',
-            'text' => 'bail|required',
-            'experience' => 'bail|required',
+            'skills' => 'bail|required|max:2000',
+            'text' => 'bail|required|max:8000',
+            'experience' => 'bail|required|max:10000',
             'decision_id' => 'bail|required',
         ], [
-            'name.required' => 'ФИО не может быть пустым',
-            'position_id.required' => 'Позиция не может быть пустой',
-            'level_id.required' => 'Уровень не может быть пустым',
-            'skills.required' => 'Навыки не может быть пустым',
-            'experience.required' => 'Опыт не может быть пустым',
-            'decision_id.required' => 'Решение не может быть пустым',
-            'text.required' => 'Резюме не может быть пустым',
+            'name.required' => 'Заполните ФИО',
+            'position_id.required' => 'Заполните поле позиция',
+            'level_id.required' => 'Заполните поле уровень',
+            'skills.required' => 'Заполните поле навыки',
+            'experience.required' => 'Заполните поле опыт',
+            'decision_id.required' => 'Заполните поле решение',
+            'text.required' => 'Заполните поле резюме',
 
             'email.unique' => 'Кандидат с таким именем уже существует! Введите другой email',
-            'email.email' => 'Введите корректный email'
+            'email.email' => 'Введите корректный email',
+            'email.max' => 'Кол-во символов в EMAIL не более 255',
+            'skills.max' => 'Кол-во символов в КЛЮЧЕВЫХ НАВЫКАХ не более 2000',
+            'text.max' => 'Кол-во символов в РЕЗЮМЕ не более 8000',
+            'experience.max' => 'Кол-во символов в ОПЫТЕ не более 10000',
         ]);
         $brief->update($request->all());
         return redirect("briefs/$brief->id");
