@@ -13,48 +13,51 @@ use App\Models\Brief;
     <title>{{$brief->name}}</title>
 </head>
 <style>
-    .all {
+    * {
         font-family: Arial;
-        text-align: left;
         font-size: 12pt;
+    }
+    .all {
+        text-align: left;
         margin: 40pt;
     }
     .email {
         color: blue;
         font-weight: lighter;
-        text-decoration: underline;
     }
-    .small_title {
-        text-decoration: underline;
+    .title_name {
+        font-size: 20pt;
     }
 
 </style>
 <body>
 
     <div class="all">
-        <h1>{{$brief->name}}</h1>
+        <b><div class="title_name">{{$brief->name}}</div></b>
 
-        <div class="email point">{{$brief->email}}</div>
+        <div class="email point">
+            <u>{{$brief->email}}</u>
+        </div>
         <br />
         <br />
 
         <div class="skills point">
-            <div class="small_title">Ключевые навыки:</div><br />
-            <p><?= $brief->skills ?></p>
+            <u>Ключевые навыки:</u>
+            <?php $brief->skills ?>
         </div>
         <br />
         <br />
 
         <div class="cv point">
-            <div class="small_title">Резюме</div>
-            <p><?= ($brief->text) ?></p>
+            <u>Резюме:</u>
+            <?php ($brief->text) ?>
         </div>
         <br />
         <br />
 
         <div class="have point">
-            <div class="small_title">Опыт</div>
-            <p><?= $brief->experience ?></p>
+            <u>Опыт:</u>
+            <?php $brief->experience ?>
         </div>
     </div>
 </body>
