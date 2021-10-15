@@ -28,7 +28,3 @@ Route::resources([
     "positions" => PositionsController::class
 ]);
 Route::get("/briefs/{brief}/pdf", [BriefsController::class, "download"])->name('pdf');
-
-Route::get("{brief}/pdf", function(Brief $brief){
-    return view("briefs.topdf")->with("brief", $brief);
-});
