@@ -65,7 +65,6 @@ use App\Models\Brief;
     </div>
     <div class="form-group">
         {{Form::submit("Отправить", ["class" => "btn form-control btn-outline-dark"])}}
-        <div id="editor"></div>
     </div>
     {{Form::close()}}
 @endsection
