@@ -72,10 +72,15 @@ use Carbon\Carbon;
         function createEmail(){
 
             var all_email = '<?php echo Brief::pluck("email");?>';
-            console.log(all_email);
+            //console.log(all_email);
 
             var arr = $('#name').val().split(' ');
-            var name_for_email = translit(arr[0]) + "." + translit(arr[1]);
+            if (arr.length === 1) {
+                var name_for_email = translit(arr[0]);
+            }
+            else {
+                var name_for_email = translit(arr[0]) + "." + translit(arr[1]);
+            }
             var pos = "-" + $('#position_id option:selected').text().substr(0,3) + "@adict.ru";
 
             while (all_email.indexOf(name_for_email+pos) !== -1) {
@@ -151,6 +156,9 @@ use Carbon\Carbon;
         });
         text.on('text-change', function(){
             textTA.innerHTML = text.root.innerHTML;
+        });
+        document.onload(function (){
+            text.val(textTA.container.firstChild.innerHTML);
         });
     </script>
     <style>

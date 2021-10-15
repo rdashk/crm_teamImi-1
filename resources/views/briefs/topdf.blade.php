@@ -57,7 +57,7 @@ use App\Models\Brief;
 
         <div class="have point">
             <u>Опыт:</u>
-            <?= $brief->experience ?>
+            <?= ($brief->experience) ?>
         </div>
     </div>
 </body>

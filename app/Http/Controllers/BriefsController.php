@@ -68,6 +68,7 @@ class BriefsController extends Controller
         ], [
             'name.required' => 'Заполните ФИО',
             'position_id.required' => 'Заполните поле позиция',
+            'email.required' => 'Заполните поле email',
             'level_id.required' => 'Заполните поле уровень',
             'skills.required' => 'Заполните поле навыки',
             'experience.required' => 'Заполните поле опыт',
@@ -75,6 +76,7 @@ class BriefsController extends Controller
             'text.required' => 'Заполните поле резюме',
 
             'email.unique' => 'Кандидат с таким именем уже существует! Введите другой email',
+
             'email.email' => 'Введите корректный email',
             'email.max' => 'Кол-во символов в EMAIL не более 255',
             'skills.max' => 'Кол-во символов в КЛЮЧЕВЫХ НАВЫКАХ не более 2000',
@@ -126,7 +128,7 @@ class BriefsController extends Controller
         $request->validate([
             'name' => 'bail|required|max:255',
             'position_id' => 'bail|required',
-            'email' => 'bail|required|email:filter|max:255|unique:briefs',
+            'email' => 'bail|required|email:filter|max:255|unique:briefs,id,'.$brief->id,
             'level_id' => 'bail|required',
             'skills' => 'bail|required|max:2000',
             'text' => 'bail|required|max:8000',
