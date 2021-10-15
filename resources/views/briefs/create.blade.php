@@ -157,9 +157,9 @@ use Carbon\Carbon;
         text.on('text-change', function(){
             textTA.innerHTML = text.root.innerHTML;
         });
-        document.onload(function (){
-            text.val(textTA.container.firstChild.innerHTML);
-        });
+        text.root.innerHTML = textTA.innerText;
+        exp.root.innerHTML = expTA.innerText;
+        skills.root.innerHTML = skillsTA.innerText;
     </script>
     <style>
         .ql-editor{
