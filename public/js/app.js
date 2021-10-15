@@ -2671,10 +2671,13 @@ __webpack_require__.r(__webpack_exports__);
       this.deletingItem = arg;
     },
     deleteFK: function deleteFK() {
+      var _this2 = this;
+
       if (this.deletingItem === null) throw new DOMException("Не удалось получить данные удаляемого элемента");else {
-        axios["delete"](window.location.origin + '/api/' + this.deletingItem.resource + "/" + this.deletingItem.id);
+        axios["delete"](window.location.origin + '/api/' + this.deletingItem.resource + "/" + this.deletingItem.id).then(function (res) {
+          return _this2.load();
+        });
         this.deletingItem = null;
-        this.load();
       }
     }
   }
@@ -18115,7 +18118,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-accent[data-v-8a84031c] {\n    transition: background-color .3s;\n    background-color: rgba(187, 187, 187, 0.99);\n}\n.slide-fade-enter-active[data-v-8a84031c], .slide-left-fade-enter-active[data-v-8a84031c]{\n    transition: all .3s ease;\n}\n.slide-fade-leave-active[data-v-8a84031c], .slide-left-fade-leave-active[data-v-8a84031c] {\n    transition: all .3s ease;\n}\n.slide-fade-enter[data-v-8a84031c], .slide-fade-leave-to[data-v-8a84031c]\n{\n    transform: translateX(15px);\n    opacity: 0;\n}\n.slide-left-fade-enter[data-v-8a84031c], .slide-left-fade-leave-to[data-v-8a84031c] {\n    transform: translateX(-15px);\n    opacity: 0;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-accent[data-v-8a84031c] {\r\n    transition: background-color .3s;\r\n    background-color: rgba(187, 187, 187, 0.99);\n}\n.slide-fade-enter-active[data-v-8a84031c], .slide-left-fade-enter-active[data-v-8a84031c]{\r\n    transition: all .3s ease;\n}\n.slide-fade-leave-active[data-v-8a84031c], .slide-left-fade-leave-active[data-v-8a84031c] {\r\n    transition: all .3s ease;\n}\n.slide-fade-enter[data-v-8a84031c], .slide-fade-leave-to[data-v-8a84031c]\r\n{\r\n    transform: translateX(15px);\r\n    opacity: 0;\n}\n.slide-left-fade-enter[data-v-8a84031c], .slide-left-fade-leave-to[data-v-8a84031c] {\r\n    transform: translateX(-15px);\r\n    opacity: 0;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

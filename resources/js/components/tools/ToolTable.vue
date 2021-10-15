@@ -44,9 +44,9 @@ export default {
             if (this.deletingItem === null) throw new DOMException("Не удалось получить данные удаляемого элемента")
             else {
                 axios
-                    .delete(window.location.origin + '/api/'+this.deletingItem.resource + "/" + this.deletingItem.id);
+                    .delete(window.location.origin + '/api/'+this.deletingItem.resource + "/" + this.deletingItem.id)
+                    .then(res => this.load());
                 this.deletingItem = null;
-                this.load();
             }
         }
     }
