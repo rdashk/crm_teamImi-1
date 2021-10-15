@@ -43,21 +43,21 @@ use App\Models\Brief;
 
         <div class="skills point">
             <u>Ключевые навыки:</u>
-            <?php $brief->skills ?>
+            <?= ($brief->skills) ?>
         </div>
         <br />
         <br />
 
         <div class="cv point">
             <u>Резюме:</u>
-            <?php ($brief->text) ?>
+            <?= ($brief->text) ?>
         </div>
         <br />
         <br />
 
         <div class="have point">
             <u>Опыт:</u>
-            <?php $brief->experience ?>
+            <?= $brief->experience ?>
         </div>
     </div>
 </body>
