@@ -39441,7 +39441,7 @@ var render = function() {
         [
           _c("Column", {
             staticClass:
-              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-4 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: { value: "Имя", data: "name", filter: false },
             on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
@@ -39455,7 +39455,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-4 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: {
               value: "Позиция",
               data: "position_id",
@@ -39467,7 +39467,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-block",
             attrs: {
               value: "Уровень",
               data: "level_id",
@@ -39491,7 +39491,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-4 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: {
               value: "Решение",
               data: "decision_id",
@@ -39619,7 +39619,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-3 col-md-2",
+          staticClass: "col-4 col-sm-3 col-md-2",
           attrs: { "data-label": "name" }
         },
         [_vm._v(_vm._s(_vm.name))]
@@ -39637,7 +39637,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-3 col-md-2",
+          staticClass: "col-4 col-sm-3 col-md-2",
           attrs: { "data-label": "position" }
         },
         [_vm._v(_vm._s(_vm.position.name))]
@@ -39646,7 +39646,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-3 col-md-2",
+          staticClass: "col-3 col-sm-2 d-none d-sm-block",
           attrs: { "data-label": "level" }
         },
         [_vm._v(_vm._s(_vm.level.name))]
@@ -39664,7 +39664,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-3 col-md-2 overflow-hidden",
+          staticClass: "col-4 col-sm-3 col-md-2 overflow-hidden",
           attrs: { "data-label": "decision" }
         },
         [_vm._v(_vm._s(_vm.decision.name))]

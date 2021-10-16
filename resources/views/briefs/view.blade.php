@@ -22,7 +22,7 @@ use App\Models\Brief;
 {{--            </svg>--}}
 {{--        </a>--}}
     </div>
-    <div id="dashboardTable" class="container col-11">
+    <div id="dashboardTable" class="container col-9 col-sm-11">
         <v-db-table columns="Имя E-mail Позиция Уровень Дата Решение"></v-db-table>
     </div>
 @endsection
