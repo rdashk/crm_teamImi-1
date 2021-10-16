@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get("/", function(){
+/*Route::get("/", function(){
     return redirect('briefs');
 });
-
+*/
 Route::resources([
     "briefs" => BriefsController::class,
     "levels" => LevelsController::class,
@@ -28,3 +28,11 @@ Route::resources([
     "positions" => PositionsController::class
 ]);
 Route::get("/briefs/{brief}/pdf", [BriefsController::class, "download"])->name('pdf');
+
+/*Route::get('/', function () {
+    return redirect('briefs');
+})->middleware('auth:admin');*/
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
