@@ -39645,7 +39645,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-2 col-md-2 d-none d-sm-block",
+          staticClass: "col-sm-3 col-md-2 d-none d-sm-block",
           attrs: { "data-label": "level" }
         },
         [_vm._v(_vm._s(_vm.level.name))]

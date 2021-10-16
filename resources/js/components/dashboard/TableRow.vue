@@ -19,7 +19,7 @@
         <div data-label="name" class="col-4 col-sm-3 col-md-2">{{ name }}</div>
         <div data-label="email" class="col-2 overflow-auto d-none d-sm-none d-md-block">{{ email }}</div>
         <div data-label="position" class="col-4 col-sm-3 col-md-2">{{ position.name }}</div>
-        <div data-label="level" class="col-3 col-sm-2 col-md-2 d-none d-sm-block">{{ level.name }}</div>
+        <div data-label="level" class="col-sm-3 col-md-2 d-none d-sm-block">{{ level.name }}</div>
         <div data-label="interview_date" class="col-2 d-none d-sm-none d-md-block">{{ interview_date }}</div>
         <div data-label="decision" class="col-4 col-sm-3 col-md-2 overflow-hidden">{{ decision.name }}</div>
         <transition name="slide-fade">
