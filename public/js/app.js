@@ -39548,17 +39548,10 @@ var render = function() {
       directives: [
         {
           name: "touch",
-          rawName: "v-touch:touchhold",
+          rawName: "v-touch:longtap",
           value: _vm.mouseOver,
           expression: "mouseOver",
-          arg: "touchhold"
-        },
-        {
-          name: "touch",
-          rawName: "v-touch:end",
-          value: _vm.mouseLeave,
-          expression: "mouseLeave",
-          arg: "end"
+          arg: "longtap"
         }
       ],
       class: _vm.compClass,

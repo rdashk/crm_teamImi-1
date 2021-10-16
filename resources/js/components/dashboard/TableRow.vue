@@ -1,6 +1,6 @@
 <template>
-    <div :class="compClass" @click="click" v-touch:touchhold="mouseOver" v-on:mouseover="mouseOver"
-         v-on:mouseleave="mouseLeave" v-touch:end="mouseLeave"
+    <div :class="compClass" @click="click" v-touch:longtap="mouseOver" v-on:mouseover="mouseOver"
+         v-on:mouseleave="mouseLeave"
          style="cursor: pointer;">
         <transition name="slide-left-fade">
             <div :class="buttonsClass" v-if="show" style="position: absolute; left: -2.1em;">
