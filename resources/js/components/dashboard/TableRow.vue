@@ -16,12 +16,12 @@
                 </button>
             </div>
         </transition>
-        <div data-label="name" class="col-3 col-sm-3 col-md-2">{{ name }}</div>
+        <div data-label="name" class="col-4 col-sm-3 col-md-2">{{ name }}</div>
         <div data-label="email" class="col-2 overflow-auto d-none d-sm-none d-md-block">{{ email }}</div>
-        <div data-label="position" class="col-3 col-sm-3 col-md-2">{{ position.name }}</div>
-        <div data-label="level" class="col-3 col-sm-3 col-md-2">{{ level.name }}</div>
+        <div data-label="position" class="col-4 col-sm-3 col-md-2">{{ position.name }}</div>
+        <div data-label="level" class="col-3 col-sm-2 col-md-2 d-none d-sm-block">{{ level.name }}</div>
         <div data-label="interview_date" class="col-2 d-none d-sm-none d-md-block">{{ interview_date }}</div>
-        <div data-label="decision" class="col-3 col-sm-3 col-md-2 overflow-hidden">{{ decision.name }}</div>
+        <div data-label="decision" class="col-4 col-sm-3 col-md-2 overflow-hidden">{{ decision.name }}</div>
         <transition name="slide-fade">
             <div :class="buttonsClass" v-if="show">
                 <a :href="'/briefs/'+id+'/edit'" class="btn btn-outline-primary pl-2 pr-2 pt-2 pb-2">

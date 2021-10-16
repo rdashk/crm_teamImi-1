@@ -2688,8 +2688,12 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_touch_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-touch-events */ "./node_modules/vue2-touch-events/index.js");
+/* harmony import */ var vue2_touch_events__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_touch_events__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -2698,6 +2702,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"];
+
+Vue.use((vue2_touch_events__WEBPACK_IMPORTED_MODULE_0___default()));
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -38289,7 +38295,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TableRow_vue_vue_type_style_index_0_id_8a84031c_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TableRow.vue?vue&type=style&index=0&id=8a84031c&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/TableRow.vue?vue&type=style&index=0&id=8a84031c&scoped=true&lang=css&");
 
-
+            
 
 var options = {};
 
@@ -38319,7 +38325,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_TableRow_vue_vue_type_style_index_0_id_6fc0dc0b_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TableRow.vue?vue&type=style&index=0&id=6fc0dc0b&scoped=true&lang=css& */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tools/TableRow.vue?vue&type=style&index=0&id=6fc0dc0b&scoped=true&lang=css&");
 
-
+            
 
 var options = {};
 
@@ -38642,7 +38648,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null,
   "7cd4f788",
   null
-
+  
 )
 
 /* hot reload */
@@ -38681,7 +38687,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null,
   "1cb1b51c",
   null
-
+  
 )
 
 /* hot reload */
@@ -38720,7 +38726,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null,
   "30528900",
   null
-
+  
 )
 
 /* hot reload */
@@ -38761,7 +38767,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null,
   "8a84031c",
   null
-
+  
 )
 
 /* hot reload */
@@ -38800,7 +38806,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null,
   "1bd124f5",
   null
-
+  
 )
 
 /* hot reload */
@@ -38839,7 +38845,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null,
   "5faf689a",
   null
-
+  
 )
 
 /* hot reload */
@@ -38880,7 +38886,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null,
   "6fc0dc0b",
   null
-
+  
 )
 
 /* hot reload */
@@ -38919,7 +38925,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   null,
   "01c50d47",
   null
-
+  
 )
 
 /* hot reload */
@@ -38941,7 +38947,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Nav.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Nav.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Nav_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -38957,7 +38963,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Column_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Column.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/Column.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Column_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Column_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -38973,7 +38979,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DashBoardTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DashBoardTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/DashBoardTable.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DashBoardTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DashBoardTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -38989,7 +38995,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TableRow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TableRow.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/dashboard/TableRow.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TableRow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TableRow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -39005,7 +39011,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Column_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Column.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tools/Column.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Column_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Column_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -39021,7 +39027,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./DeleteModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tools/DeleteModal.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeleteModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -39037,7 +39043,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TableRow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TableRow.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tools/TableRow.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TableRow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TableRow_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -39053,7 +39059,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ToolTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ToolTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/tools/ToolTable.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ToolTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ToolTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -39421,7 +39427,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "d-flex flex-column container table-bordered col-12 pl-0 pr-0 text-center",
+        "d-flex flex-column container table-bordered col-11 col-sm-12 pl-0 pr-0 text-center",
       attrs: { id: "table" }
     },
     [
@@ -39434,7 +39440,7 @@ var render = function() {
         [
           _c("Column", {
             staticClass:
-              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-4 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: { value: "Имя", data: "name", filter: false },
             on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
@@ -39448,7 +39454,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-4 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: {
               value: "Позиция",
               data: "position_id",
@@ -39460,7 +39466,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-md-2 col-sm-3 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-block",
             attrs: {
               value: "Уровень",
               data: "level_id",
@@ -39484,7 +39490,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-4 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: {
               value: "Решение",
               data: "decision_id",
@@ -39539,6 +39545,15 @@ var render = function() {
   return _c(
     "div",
     {
+      directives: [
+        {
+          name: "touch",
+          rawName: "v-touch:longtap",
+          value: _vm.mouseOver,
+          expression: "mouseOver",
+          arg: "longtap"
+        }
+      ],
       class: _vm.compClass,
       staticStyle: { cursor: "pointer" },
       on: {
@@ -39603,7 +39618,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-3 col-md-2",
+          staticClass: "col-4 col-sm-3 col-md-2",
           attrs: { "data-label": "name" }
         },
         [_vm._v(_vm._s(_vm.name))]
@@ -39621,7 +39636,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-3 col-md-2",
+          staticClass: "col-4 col-sm-3 col-md-2",
           attrs: { "data-label": "position" }
         },
         [_vm._v(_vm._s(_vm.position.name))]
@@ -39630,7 +39645,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-3 col-md-2",
+          staticClass: "col-3 col-sm-2 col-md-2 d-none d-sm-block",
           attrs: { "data-label": "level" }
         },
         [_vm._v(_vm._s(_vm.level.name))]
@@ -39648,7 +39663,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-3 col-md-2 overflow-hidden",
+          staticClass: "col-4 col-sm-3 col-md-2 overflow-hidden",
           attrs: { "data-label": "decision" }
         },
         [_vm._v(_vm._s(_vm.decision.name))]
@@ -40198,6 +40213,392 @@ function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/vue2-touch-events/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/vue2-touch-events/index.js ***!
+  \*************************************************/
+/***/ ((module) => {
+
+/**
+ *
+ * @author    Jerry Bendy
+ * @since     4/12/2017
+ */
+
+function touchX(event) {
+    if(event.type.indexOf('mouse') !== -1){
+        return event.clientX;
+    }
+    return event.touches[0].clientX;
+}
+
+function touchY(event) {
+    if(event.type.indexOf('mouse') !== -1){
+        return event.clientY;
+    }
+    return event.touches[0].clientY;
+}
+
+var isPassiveSupported = (function() {
+    var supportsPassive = false;
+    try {
+        var opts = Object.defineProperty({}, 'passive', {
+            get: function() {
+                supportsPassive = true;
+            }
+        });
+        window.addEventListener('test', null, opts);
+    } catch (e) {}
+    return supportsPassive;
+})();
+
+// Save last touch time globally (touch start time or touch end time), if a `click` event triggered,
+// and the time near by the last touch time, this `click` event will be ignored. This is used for
+// resolve touch through issue.
+var globalLastTouchTime = 0;
+
+var vueTouchEvents = {
+    install: function (Vue, constructorOptions) {
+
+        var globalOptions = Object.assign({}, {
+            disableClick: false,
+            tapTolerance: 10,  // px
+            swipeTolerance: 30,  // px
+            touchHoldTolerance: 400,  // ms
+            longTapTimeInterval: 400,  // ms
+            touchClass: '',
+            namespace: 'touch'
+        }, constructorOptions);
+
+        function touchStartEvent(event) {
+            var $this = this.$$touchObj,
+                isTouchEvent = event.type.indexOf('touch') >= 0,
+                isMouseEvent = event.type.indexOf('mouse') >= 0,
+                $el = this;
+
+            if (isTouchEvent) {
+                globalLastTouchTime = event.timeStamp;
+            }
+
+            if (isMouseEvent && globalLastTouchTime && event.timeStamp - globalLastTouchTime < 350) {
+                return;
+            }
+
+            if ($this.touchStarted) {
+                return;
+            }
+
+            addTouchClass(this);
+
+            $this.touchStarted = true;
+
+            $this.touchMoved = false;
+            $this.swipeOutBounded = false;
+
+            $this.startX = touchX(event);
+            $this.startY = touchY(event);
+
+            $this.currentX = 0;
+            $this.currentY = 0;
+
+            $this.touchStartTime = event.timeStamp;
+
+            // Trigger touchhold event after `touchHoldTolerance`ms
+            $this.touchHoldTimer = setTimeout(function() {
+                $this.touchHoldTimer = null;
+                triggerEvent(event, $el, 'touchhold');
+            }, $this.options.touchHoldTolerance);
+
+            triggerEvent(event, this, 'start');
+        }
+
+        function touchMoveEvent(event) {
+            var $this = this.$$touchObj;
+
+            $this.currentX = touchX(event);
+            $this.currentY = touchY(event);
+
+            if (!$this.touchMoved) {
+                var tapTolerance = $this.options.tapTolerance;
+
+                $this.touchMoved = Math.abs($this.startX - $this.currentX) > tapTolerance ||
+                    Math.abs($this.startY - $this.currentY) > tapTolerance;
+
+                if($this.touchMoved){
+                    cancelTouchHoldTimer($this);
+                    triggerEvent(event, this, 'moved');
+                }
+
+            } else if (!$this.swipeOutBounded) {
+                var swipeOutBounded = $this.options.swipeTolerance;
+
+                $this.swipeOutBounded = Math.abs($this.startX - $this.currentX) > swipeOutBounded &&
+                    Math.abs($this.startY - $this.currentY) > swipeOutBounded;
+            }
+
+            if($this.touchMoved){
+                triggerEvent(event, this, 'moving');
+            }
+        }
+
+        function touchCancelEvent() {
+            var $this = this.$$touchObj;
+
+            cancelTouchHoldTimer($this);
+            removeTouchClass(this);
+
+            $this.touchStarted = $this.touchMoved = false;
+            $this.startX = $this.startY = 0;
+        }
+
+        function touchEndEvent(event) {
+            var $this = this.$$touchObj,
+                isTouchEvent = event.type.indexOf('touch') >= 0,
+                isMouseEvent = event.type.indexOf('mouse') >= 0;
+
+            if (isTouchEvent) {
+                globalLastTouchTime = event.timeStamp;
+            }
+
+            var touchholdEnd = isTouchEvent && !$this.touchHoldTimer;
+            cancelTouchHoldTimer($this);
+
+            $this.touchStarted = false;
+
+            removeTouchClass(this);
+
+            if (isMouseEvent && globalLastTouchTime && event.timeStamp - globalLastTouchTime < 350) {
+                return;
+            }
+
+            // Fix #33, Trigger `end` event when touch stopped
+            triggerEvent(event, this, 'end');
+
+            if (!$this.touchMoved) {
+                // detect if this is a longTap event or not
+                if ($this.callbacks.longtap && event.timeStamp - $this.touchStartTime > $this.options.longTapTimeInterval) {
+                    if (event.cancelable) {
+                        event.preventDefault();
+                    }
+                    triggerEvent(event, this, 'longtap');
+
+                } else if ($this.callbacks.touchhold && touchholdEnd) {
+                    if (event.cancelable) {
+                        event.preventDefault();
+                    }
+                    return;
+                } else {
+                    // emit tap event
+                    triggerEvent(event, this, 'tap');
+                }
+
+            } else if (!$this.swipeOutBounded) {
+                var swipeOutBounded = $this.options.swipeTolerance,
+                    direction,
+                    distanceY = Math.abs($this.startY - $this.currentY),
+                    distanceX = Math.abs($this.startX - $this.currentX);
+
+                if (distanceY > swipeOutBounded || distanceX > swipeOutBounded) {
+                    if (distanceY > swipeOutBounded) {
+                        direction = $this.startY > $this.currentY ? 'top' : 'bottom';
+                    } else {
+                        direction = $this.startX > $this.currentX ? 'left' : 'right';
+                    }
+
+                    // Only emit the specified event when it has modifiers
+                    if ($this.callbacks['swipe.' + direction]) {
+                        triggerEvent(event, this, 'swipe.' + direction, direction);
+                    } else {
+                        // Emit a common event when it has no any modifier
+                        triggerEvent(event, this, 'swipe', direction);
+                    }
+                }
+            }
+        }
+
+        function mouseEnterEvent() {
+            addTouchClass(this);
+        }
+
+        function mouseLeaveEvent() {
+            removeTouchClass(this);
+        }
+
+        function triggerEvent(e, $el, eventType, param) {
+            var $this = $el.$$touchObj;
+
+            // get the callback list
+            var callbacks = $this && $this.callbacks[eventType] || [];
+            if (callbacks.length === 0) {
+                return null;
+            }
+
+            for (var i = 0; i < callbacks.length; i++) {
+                var binding = callbacks[i];
+
+                if (binding.modifiers.stop) {
+                    e.stopPropagation();
+                }
+
+                if (binding.modifiers.prevent && e.cancelable) {
+                    e.preventDefault();
+                }
+
+                // handle `self` modifier`
+                if (binding.modifiers.self && e.target !== e.currentTarget) {
+                    continue;
+                }
+
+                if (typeof binding.value === 'function') {
+                    if (param) {
+                        binding.value(param, e);
+                    } else {
+                        binding.value(e);
+                    }
+                }
+            }
+        }
+
+        function addTouchClass($el) {
+            var className = $el.$$touchObj.options.touchClass;
+            className && $el.classList.add(className);
+        }
+
+        function removeTouchClass($el) {
+            var className = $el.$$touchObj.options.touchClass;
+            className && $el.classList.remove(className);
+        }
+
+        function cancelTouchHoldTimer($this) {
+            if ($this.touchHoldTimer) {
+                clearTimeout($this.touchHoldTimer);
+                $this.touchHoldTimer = null;
+            }
+        }
+
+        function buildTouchObj($el, extraOptions) {
+            var touchObj = $el.$$touchObj || {
+                // an object contains all callbacks registered,
+                // key is event name, value is an array
+                callbacks: {},
+                // prevent bind twice, set to true when event bound
+                hasBindTouchEvents: false,
+                // default options, would be override by v-touch-options
+                options: globalOptions
+            };
+            if (extraOptions) {
+                touchObj.options = Object.assign({}, touchObj.options, extraOptions);
+            }
+            $el.$$touchObj = touchObj;
+            return $el.$$touchObj;
+        }
+
+        Vue.directive(globalOptions.namespace, {
+            bind: function ($el, binding) {
+                // build a touch configuration object
+                var $this = buildTouchObj($el);
+                // declare passive option for the event listener. Defaults to { passive: true } if supported
+                var passiveOpt = isPassiveSupported ? { passive: true } : false;
+                // register callback
+                var eventType = binding.arg || 'tap';
+                switch (eventType) {
+                    case 'swipe':
+                        var _m = binding.modifiers;
+                        if (_m.left || _m.right || _m.top || _m.bottom) {
+                            for (var i in binding.modifiers) {
+                                if (['left', 'right', 'top', 'bottom'].indexOf(i) >= 0) {
+                                    var _e = 'swipe.' + i;
+                                    $this.callbacks[_e] = $this.callbacks[_e] || [];
+                                    $this.callbacks[_e].push(binding);
+                                }
+                            }
+                        } else {
+                            $this.callbacks.swipe = $this.callbacks.swipe || [];
+                            $this.callbacks.swipe.push(binding);
+                        }
+                        break;
+                    
+                    case 'start':
+                    case 'moving':
+                        if (binding.modifiers.disablePassive) {
+                            // change the passive option for the moving event if disablePassive modifier exists
+                            passiveOpt = false;
+                        }
+                    // fallthrough
+                    default:
+                        $this.callbacks[eventType] = $this.callbacks[eventType] || [];
+                        $this.callbacks[eventType].push(binding);
+                }
+
+                // prevent bind twice
+                if ($this.hasBindTouchEvents) {
+                    return;
+                }
+
+                $el.addEventListener('touchstart', touchStartEvent, passiveOpt);
+                $el.addEventListener('touchmove', touchMoveEvent, passiveOpt);
+                $el.addEventListener('touchcancel', touchCancelEvent);
+                $el.addEventListener('touchend', touchEndEvent);
+
+                if (!$this.options.disableClick) {
+                    $el.addEventListener('mousedown', touchStartEvent);
+                    $el.addEventListener('mousemove', touchMoveEvent);
+                    $el.addEventListener('mouseup', touchEndEvent);
+                    $el.addEventListener('mouseenter', mouseEnterEvent);
+                    $el.addEventListener('mouseleave', mouseLeaveEvent);
+                }
+
+                // set bind mark to true
+                $this.hasBindTouchEvents = true;
+            },
+
+            unbind: function ($el) {
+                $el.removeEventListener('touchstart', touchStartEvent);
+                $el.removeEventListener('touchmove', touchMoveEvent);
+                $el.removeEventListener('touchcancel', touchCancelEvent);
+                $el.removeEventListener('touchend', touchEndEvent);
+
+                if ($el.$$touchObj && !$el.$$touchObj.options.disableClick) {
+                    $el.removeEventListener('mousedown', touchStartEvent);
+                    $el.removeEventListener('mousemove', touchMoveEvent);
+                    $el.removeEventListener('mouseup', touchEndEvent);
+                    $el.removeEventListener('mouseenter', mouseEnterEvent);
+                    $el.removeEventListener('mouseleave', mouseLeaveEvent);
+                }
+
+                // remove vars
+                delete $el.$$touchObj;
+            }
+        });
+
+        Vue.directive(globalOptions.namespace + '-class', {
+            bind: function ($el, binding) {
+                buildTouchObj($el, {
+                    touchClass: binding.value
+                });
+            }
+        });
+
+        Vue.directive(globalOptions.namespace + '-options', {
+            bind: function($el, binding) {
+                buildTouchObj($el, binding.value);
+            }
+        });
+    }
+};
+
+
+/*
+ * Exports
+ */
+if (true) {
+    module.exports = vueTouchEvents;
+
+} else {}
 
 
 /***/ }),
@@ -52261,7 +52662,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -52275,20 +52676,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
@@ -52321,7 +52722,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return result;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -52333,7 +52734,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return getter;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -52345,7 +52746,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -52357,12 +52758,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -52373,7 +52774,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -52382,11 +52783,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/
+/******/ 		
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -52394,19 +52795,19 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/
+/******/ 		
 /******/ 		// no chunk on demand loading
-/******/
+/******/ 		
 /******/ 		// no prefetching
-/******/
+/******/ 		
 /******/ 		// no preloaded
-/******/
+/******/ 		
 /******/ 		// no HMR
-/******/
+/******/ 		
 /******/ 		// no HMR manifest
-/******/
+/******/ 		
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/
+/******/ 		
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
@@ -52431,20 +52832,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/
+/******/ 		
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-/******/
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/
+/******/ 	
 /******/ })()
 ;
