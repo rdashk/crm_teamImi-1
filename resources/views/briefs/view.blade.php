@@ -36,5 +36,8 @@ use App\Models\Brief;
         updateButton.onclick = function () {
             table.$children[0].changes([]);
         }
+        document.getElementById("dashboardTable").onselect = function(e){
+            e.preventDefault();
+        }
     </script>
 @endpush
