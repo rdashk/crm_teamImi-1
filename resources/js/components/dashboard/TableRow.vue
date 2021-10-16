@@ -91,6 +91,7 @@ export default {
             document.location = "/briefs/" + this.id;
         },
         mouseOver(event) {
+            event.preventDefault();
             this.compClass = this.className + " bg-accent";
             this.show = true;
         },

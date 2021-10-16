@@ -2415,6 +2415,7 @@ __webpack_require__.r(__webpack_exports__);
       document.location = "/briefs/" + this.id;
     },
     mouseOver: function mouseOver(event) {
+      event.preventDefault();
       this.compClass = this.className + " bg-accent";
       this.show = true;
     },
