@@ -2082,7 +2082,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Nav"
 });
@@ -18118,7 +18117,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-accent[data-v-8a84031c] {\r\n    transition: background-color .3s;\r\n    background-color: rgba(187, 187, 187, 0.99);\n}\n.slide-fade-enter-active[data-v-8a84031c], .slide-left-fade-enter-active[data-v-8a84031c]{\r\n    transition: all .3s ease;\n}\n.slide-fade-leave-active[data-v-8a84031c], .slide-left-fade-leave-active[data-v-8a84031c] {\r\n    transition: all .3s ease;\n}\n.slide-fade-enter[data-v-8a84031c], .slide-fade-leave-to[data-v-8a84031c]\r\n{\r\n    transform: translateX(15px);\r\n    opacity: 0;\n}\n.slide-left-fade-enter[data-v-8a84031c], .slide-left-fade-leave-to[data-v-8a84031c] {\r\n    transform: translateX(-15px);\r\n    opacity: 0;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-accent[data-v-8a84031c] {\n    transition: background-color .3s;\n    background-color: rgba(187, 187, 187, 0.99);\n}\n.slide-fade-enter-active[data-v-8a84031c], .slide-left-fade-enter-active[data-v-8a84031c]{\n    transition: all .3s ease;\n}\n.slide-fade-leave-active[data-v-8a84031c], .slide-left-fade-leave-active[data-v-8a84031c] {\n    transition: all .3s ease;\n}\n.slide-fade-enter[data-v-8a84031c], .slide-fade-leave-to[data-v-8a84031c]\n{\n    transform: translateX(15px);\n    opacity: 0;\n}\n.slide-left-fade-enter[data-v-8a84031c], .slide-left-fade-leave-to[data-v-8a84031c] {\n    transform: translateX(-15px);\n    opacity: 0;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39247,7 +39246,7 @@ var staticRenderFns = [
       "nav",
       { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark rounded" },
       [
-        _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
+        _c("a", { staticClass: "navbar-brand", attrs: { href: "/briefs" } }, [
           _vm._v("CRM")
         ]),
         _vm._v(" "),
@@ -39275,15 +39274,6 @@ var staticRenderFns = [
           },
           [
             _c("div", { staticClass: "navbar-nav ml-auto" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-item nav-link",
-                  attrs: { href: "/briefs" }
-                },
-                [_vm._v("DashBoard")]
-              ),
-              _vm._v(" "),
               _c(
                 "a",
                 {
@@ -39444,21 +39434,21 @@ var render = function() {
         [
           _c("Column", {
             staticClass:
-              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: { value: "Имя", data: "name", filter: false },
             on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-none d-md-block",
             attrs: { value: "E-mail", data: "email", filter: false },
             on: { changed: _vm.changes, del: _vm.deleteFromSort }
           }),
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: {
               value: "Позиция",
               data: "position_id",
@@ -39470,7 +39460,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: {
               value: "Уровень",
               data: "level_id",
@@ -39482,7 +39472,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-none d-md-block",
             attrs: {
               value: "Дата",
               data: "interview_date",
@@ -39494,7 +39484,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
+              "col-3 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0",
             attrs: {
               value: "Решение",
               data: "decision_id",
@@ -39610,37 +39600,55 @@ var render = function() {
           : _vm._e()
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-2", attrs: { "data-label": "name" } }, [
-        _vm._v(_vm._s(_vm.name))
-      ]),
+      _c(
+        "div",
+        {
+          staticClass: "col-3 col-sm-3 col-md-2",
+          attrs: { "data-label": "name" }
+        },
+        [_vm._v(_vm._s(_vm.name))]
+      ),
       _vm._v(" "),
       _c(
         "div",
         {
-          staticClass: "col-2 overflow-auto",
+          staticClass: "col-2 overflow-auto d-none d-sm-none d-md-block",
           attrs: { "data-label": "email" }
         },
         [_vm._v(_vm._s(_vm.email))]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-2", attrs: { "data-label": "position" } }, [
-        _vm._v(_vm._s(_vm.position.name))
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-2", attrs: { "data-label": "level" } }, [
-        _vm._v(_vm._s(_vm.level.name))
-      ]),
+      _c(
+        "div",
+        {
+          staticClass: "col-3 col-sm-3 col-md-2",
+          attrs: { "data-label": "position" }
+        },
+        [_vm._v(_vm._s(_vm.position.name))]
+      ),
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "col-2", attrs: { "data-label": "interview_date" } },
+        {
+          staticClass: "col-3 col-sm-3 col-md-2",
+          attrs: { "data-label": "level" }
+        },
+        [_vm._v(_vm._s(_vm.level.name))]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-2 d-none d-sm-none d-md-block",
+          attrs: { "data-label": "interview_date" }
+        },
         [_vm._v(_vm._s(_vm.interview_date))]
       ),
       _vm._v(" "),
       _c(
         "div",
         {
-          staticClass: "col-2 overflow-hidden",
+          staticClass: "col-3 col-sm-3 col-md-2 overflow-hidden",
           attrs: { "data-label": "decision" }
         },
         [_vm._v(_vm._s(_vm.decision.name))]
