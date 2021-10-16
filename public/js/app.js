@@ -39428,7 +39428,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "d-flex flex-column container table-bordered col-12 pl-0 pr-0 text-center",
+        "d-flex flex-column container table-bordered col-11 col-sm-12 pl-0 pr-0 text-center",
       attrs: { id: "table" }
     },
     [
@@ -39467,7 +39467,7 @@ var render = function() {
           _vm._v(" "),
           _c("Column", {
             staticClass:
-              "col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-block",
+              "col-md-2 col-sm-3 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-block",
             attrs: {
               value: "Уровень",
               data: "level_id",
@@ -39646,7 +39646,7 @@ var render = function() {
       _c(
         "div",
         {
-          staticClass: "col-3 col-sm-2 d-none d-sm-block",
+          staticClass: "col-md-2 col-sm-3 d-none d-sm-block",
           attrs: { "data-label": "level" }
         },
         [_vm._v(_vm._s(_vm.level.name))]

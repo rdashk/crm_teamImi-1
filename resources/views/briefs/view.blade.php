@@ -22,7 +22,7 @@ use App\Models\Brief;
 {{--            </svg>--}}
 {{--        </a>--}}
     </div>
-    <div id="dashboardTable" class="container col-9 col-sm-11">
+    <div id="dashboardTable" class="container col-11 ml-2 ml-sm-auto">
         <v-db-table columns="Имя E-mail Позиция Уровень Дата Решение"></v-db-table>
     </div>
 @endsection
@@ -35,9 +35,6 @@ use App\Models\Brief;
         const updateButton = document.getElementById('updateTableButton');
         updateButton.onclick = function () {
             table.$children[0].changes([]);
-        }
-        document.getElementById("dashboardTable").onselect = function(e){
-            e.preventDefault();
         }
     </script>
 @endpush

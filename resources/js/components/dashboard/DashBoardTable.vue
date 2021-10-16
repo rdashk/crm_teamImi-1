@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex flex-column container table-bordered col-12 pl-0 pr-0 text-center" id="table">
+    <div class="d-flex flex-column container table-bordered col-11 col-sm-12 pl-0 pr-0 text-center" id="table">
         <div class="d-flex flex-row container col-12 pl-0 pr-0 mt-1 mb-1 fw-bold">
             <Column value="Имя" class="col-4 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0"
                     data="name" :filter="false" v-on:changed="changes" v-on:del="deleteFromSort"></Column>
@@ -7,7 +7,7 @@
                     data="email" :filter="false" v-on:changed="changes" v-on:del="deleteFromSort"></Column>
             <Column value="Позиция" class="col-4 col-sm-3 col-md-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0"
                     data="position_id" :filter="true" resource="positions" v-on:changed="changes" v-on:del="deleteFromSort"></Column>
-            <Column value="Уровень" class="col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-block"
+            <Column value="Уровень" class="col-md-2 col-sm-3 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-block"
                     data="level_id" :filter="true" resource="levels" v-on:changed="changes" v-on:del="deleteFromSort"></Column>
             <Column value="Дата" class="col-2 d-flex flex-row justify-content-around align-items-center pl-0 pr-0 d-none d-sm-none d-md-block"
                     data="interview_date" :filter="true" resource="date" v-on:changed="changes" v-on:del="deleteFromSort"></Column>
