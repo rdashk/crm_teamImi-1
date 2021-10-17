@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Повторите пароль') }}</div>
+                <div class="card-header">{{ __('confirm password') }}</div>
 
                 <div class="card-body">
                     {{ __('Please confirm your password before continuing.') }}
