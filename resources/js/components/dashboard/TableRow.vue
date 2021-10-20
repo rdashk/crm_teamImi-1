@@ -101,8 +101,8 @@ export default {
         deleteItem(e){
             e.stopPropagation();
             axios
-                .delete(window.location.origin + '/api/briefs/'+this.id);
-            this.$emit('reload');
+                .delete(window.location.origin + '/api/briefs/'+this.id)
+                .then(this.$emit('reload'));
         }
     }
 }

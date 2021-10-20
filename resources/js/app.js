@@ -22,7 +22,10 @@ Vue.use(Vue2TouchEvents);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('v-db-table', require('./components/dashboard/DashBoardTable.vue').default);
+Vue.component('v-nav', require("./components/Nav.vue").default);
+Vue.component('v-tool-table', require('./components/tools/ToolTable.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,6 +33,6 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
+const navigation = new Vue({
+    el: '#navigation',
 });
