@@ -1,6 +1,6 @@
 @extends("template")
 @section("title")
-    DashBoard
+    Главная
 @endsection
 <?php
 use App\Models\Brief;
